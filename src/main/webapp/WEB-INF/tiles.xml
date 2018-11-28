@@ -19,8 +19,25 @@
     <definition name="homePage" extends="base.definition">  
         <put-attribute name="title" value="Home Page" />  
         <put-attribute name="body" value="/WEB-INF/bodyfragments/_home.jsp" />  
-    </definition>  
-           
+    </definition> 
+    
+    <!-- Prenotazioni  -->
+    <definition name="prenotazioni" extends="base.definition">  
+        <put-attribute name="title" value="Tabella Prenotazioni" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/_prenotazioni.jsp" />  
+    </definition> 
+    
+    <!-- Risorse  -->
+    <definition name="risorse" extends="base.definition">  
+        <put-attribute name="title" value="risorse" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/_risorse.jsp" />  
+    </definition> 
+    
+    <!-- Richieste  -->
+    <definition name="richieste" extends="base.definition">  
+        <put-attribute name="title" value="Richieste" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/_richieste.jsp" />  
+    </definition>        
  
   
 </tiles-definitions> 
