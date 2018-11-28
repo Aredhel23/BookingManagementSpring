@@ -50,7 +50,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin</a>
+                <a class="navbar-brand" href="home">Admin</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -115,7 +115,7 @@
                             <a href="#">
                                 <div>
                                     <p>
-                                        <strong>Disponibilità Proiettore domani</strong>
+                                        <strong>Disponibilitï¿½ Proiettore domani</strong>
                                         <span class="pull-right text-muted">40% Occupato</span>
                                     </p>
                                     <div class="progress progress-striped active">
@@ -131,7 +131,7 @@
                             <a href="#">
                                 <div>
                                     <p>
-                                        <strong>Disponibilità Macchine domani</strong>
+                                        <strong>Disponibilitï¿½ Macchine domani</strong>
                                         <span class="pull-right text-muted">20% Occupate</span>
                                     </p>
                                     <div class="progress progress-striped active">
@@ -147,7 +147,7 @@
                             <a href="#">
                                 <div>
                                     <p>
-                                        <strong>Disponibilità Aule EF domani</strong>
+                                        <strong>Disponibilitï¿½ Aule EF domani</strong>
                                         <span class="pull-right text-muted">60% Occupate</span>
                                     </p>
                                     <div class="progress progress-striped active">
@@ -163,7 +163,7 @@
                             <a href="#">
                                 <div>
                                     <p>
-                                        <strong>Disponibilità laptop domani</strong>
+                                        <strong>Disponibilitï¿½ laptop domani</strong>
                                         <span class="pull-right text-muted">80% occupati</span>
                                     </p>
                                     <div class="progress progress-striped active">
