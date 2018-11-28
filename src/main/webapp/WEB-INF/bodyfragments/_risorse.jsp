@@ -24,51 +24,13 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                <thead>
+                            	 <thead>
                                     <tr>
                                         <th>Tipo Risorsa</th>
                                         <th>Nome</th>
                                         <th>Limite</th>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>Proiettore</td>
-                                        <td>num. 1</td>
-                                        <td>256</td>
-                                        
-                                        
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>Proiettore</td>
-                                        <td>num. 2</td>
-                                        <td>512</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Macchina</td>
-                                        <td>Fiat Punto</td>
-                                        <td>5</td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Macchina</td>
-                                        <td>Fiat 500</td>
-                                        <td>4</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Macchina</td>
-                                        <td>BMW 320d</td>
-                                        <td>5</td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Laptop</td>
-                                        <td>Asus zen 3</td>
-                                        <td>8</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Laptop</td>
-                                        <td>Dell G7</td>
-                                        <td>16</td>
-                                    </tr>                                   
+                                </thead>                                
                             </table>
                             <!-- /.table-responsive -->
                             
@@ -97,11 +59,32 @@
     <script src="../dist/js/sb-admin-2.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <!--
     <script>
+    
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
             responsive: true
         });
+    });
+   
+    </script>
+    -->
+    <script>
+    $(document).ready(function() {
+    $('#dataTables-example').DataTable({
+        ajax: {
+            url: "/ajax/resources.json",
+            dataSrc: 'responseData'
+            
+        },
+        columns: [
+          { data: "Tipo Risorsa" }, 
+          { data: "Nome" }, 
+          { data: "Limite" },
+ 
+        ]
+    });
     });
     </script>
 </body>
