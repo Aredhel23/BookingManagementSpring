@@ -24,6 +24,10 @@ public class MainController {
     public String risorse(Model model) {
         return "risorse";
     }
+	@RequestMapping(value = { "/user", "/userhome" }, method = RequestMethod.GET)
+    public String homePageUser(Model model) {
+        return "homePageUser";
+    }
 	
 	@RequestMapping(value = { "/richiesteutente", "/userrichieste" }, method = RequestMethod.GET)
     public String richiesteutente(Model model) {
