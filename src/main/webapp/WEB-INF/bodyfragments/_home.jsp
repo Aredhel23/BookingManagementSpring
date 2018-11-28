@@ -88,7 +88,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <a href="tables.html"><span class="pull-left">Vedi Dettagli</span></a>
+                                <a href="prenotazioni"><span class="pull-left">Vedi Dettagli</span></a>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -111,11 +111,11 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
                                                 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu pull-right" role="menu">
-                                                <li><a href="forms.html">Aggiungi Risorsa</a>
+                                                <li><a href="richieste">Aggiungi Risorsa</a>
                                                 </li>
-                                                <li><a href="forms.html">Elimina Risorsa</a>
+                                                <li><a href="richieste">Elimina Risorsa</a>
                                                 </li>
-                                                <li><a href="forms.html">Aggiorna Risorsa</a>
+                                                <li><a href="richieste">Aggiorna Risorsa</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -127,7 +127,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <a href="resources.html"><span class="pull-left">Vedi Dettagli</span></a>
+                                <a href="risorse"><span class="pull-left">Vedi Dettagli</span></a>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -458,23 +458,11 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-
+    
     <!-- Morris Charts JavaScript -->
     <script src="../vendor/raphael/raphael.min.js"></script>
     <script src="../vendor/morrisjs/morris.min.js"></script>
     <script src="../data/morris-data.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
-
 
 </body>
 </html>
