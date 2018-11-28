@@ -37,7 +37,33 @@
     <definition name="richieste" extends="base.definition">  
         <put-attribute name="title" value="Richieste" />  
         <put-attribute name="body" value="/WEB-INF/bodyfragments/_richieste.jsp" />  
-    </definition>        
+    </definition>
+    
+        <!-- Base Define -->
+    <definition name="baseuser.definition" 
+        template="/WEB-INF/layouts/classic.jsp">  
+        <put-attribute name="title" value="" />  
+        <put-attribute name="header" value="/WEB-INF/basefragments/_userheader.jsp" />  
+        <put-attribute name="menu" value="/WEB-INF/basefragments/_usermenu.jsp" />  
+        <put-attribute name="body" value="" />  
+        <put-attribute name="footer" value="/WEB-INF/basefragments/_footer.jsp" />  
+    </definition> 
+    
+    <!-- Home Page Utente -->
+    <definition name="homePageUser" extends="baseuser.definition">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/_userhome.jsp" />  
+    </definition>      
+    <!-- Prenotazioni Utente  -->
+    <definition name="prenotazioniutente" extends="baseuser.definition">  
+        <put-attribute name="title" value="prenotazioni" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/_userprenotazioni.jsp" />  
+    </definition>
+    <!-- Richieste Utente  -->
+    <definition name="richiesteutente" extends="baseuser.definition">  
+        <put-attribute name="title" value="Richieste" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/_userrichieste.jsp" />  
+    </definition>  
  
   
 </tiles-definitions> 
