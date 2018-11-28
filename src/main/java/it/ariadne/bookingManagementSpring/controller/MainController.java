@@ -24,5 +24,14 @@ public class MainController {
     public String risorse(Model model) {
         return "risorse";
     }
+	
+	@RequestMapping(value = { "/richiesteutente", "/userrichieste" }, method = RequestMethod.GET)
+    public String richiesteutente(Model model) {
+        return "richiesteutente";
+    }
+	@RequestMapping(value = { "/prenotazioniutente", "/userprenotazioni" }, method = RequestMethod.GET)
+    public String prenotazioniutente(Model model) {
+        return "prenotazioniutente";
+    }
 
 }
