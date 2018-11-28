@@ -1,0 +1,20 @@
+{"responseCode":0,
+"responseData":
+[
+{"Tipo Risorsa":"Proiettore","Nome":"num.1","Limite":256},
+{"Tipo Risorsa":"Proiettore","Nome":"num.2","Limite":512},
+{"Tipo Risorsa":"Proiettore","Nome":"num.3","Limite":1024},
+{"Tipo Risorsa":"Notebook","Nome":"Asus","Limite":8},
+{"Tipo Risorsa":"Notebook","Nome":"Dell","Limite":16},
+{"Tipo Risorsa":"Notebook","Nome":"Acer","Limite":8},
+{"Tipo Risorsa":"Macchina","Nome":"Porche","Limite":5},
+{"Tipo Risorsa":"Macchina","Nome":"BMW","Limite":5},
+{"Tipo Risorsa":"Macchina","Nome":"Panda","Limite":5},
+{"Tipo Risorsa":"Macchina","Nome":"500","Limite":3},
+{"Tipo Risorsa":"Macchina","Nome":"Panda","Limite":5},
+{"Tipo Risorsa":"Aula","Nome":"num.4","Limite":200},
+{"Tipo Risorsa":"Aula","Nome":"num.5","Limite":150},
+{"Tipo Risorsa":"Proiettore","Nome":"num.4","Limite":256},
+{"Tipo Risorsa":"Proiettore","Nome":"num.5","Limite":512}
+
+]}
