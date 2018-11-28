@@ -52,42 +52,19 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="home"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                        
                         <li>
-                            <a href="pages/tables.html"><i class="fa fa-table fa-fw"></i> Calendari Prenotazioni</a>
+                            <a href="prenotazioni"><i class="fa fa-table fa-fw"></i> Calendari Prenotazioni</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Richieste</a>
+                            <a href="richieste"><i class="fa fa-edit fa-fw"></i> Richieste</a>
                         </li>
                         <li>
-                            <a href="resources.html"><i class="fa fa-table fa-fw"></i> Risorse</a>
+                            <a href="risorse"><i class="fa fa-table fa-fw"></i> Risorse</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Elementi interfaccia<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="panels-wells.html">Panelli</a>
-                                </li>
-                                <li>
-                                    <a href="buttons.html">Bottoni</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Notifiche</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Caratteri</a>
-                                </li>
-                                <li>
-                                    <a href="icons.html"> Icone</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Griglia</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
