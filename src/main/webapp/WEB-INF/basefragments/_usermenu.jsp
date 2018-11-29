@@ -54,13 +54,13 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="indexUser.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="user"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="tablesUser.html"><i class="fa fa-table fa-fw"></i> Le Mie Prenotazioni</a>
+                            <a href="prenotazioniutente"><i class="fa fa-table fa-fw"></i> Le Mie Prenotazioni</a>
                         </li>
                         <li>
-                            <a href="formsUser.html"><i class="fa fa-edit fa-fw"></i> Richieste</a>
+                            <a href="richiesteutente"><i class="fa fa-edit fa-fw"></i> Richieste</a>
                         </li>
                     </ul>
                 </div>
