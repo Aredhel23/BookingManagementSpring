@@ -26,8 +26,9 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                             	 <thead>
                                     <tr>
-                                        <th>Tipo Risorsa</th>
-                                        <th>Nome</th>
+                                        <th>Id</th>
+                                         <th>Tipo</th>
+                                        <th>Nome</th>                                       
                                         <th>Limite</th>
                                     </tr>
                                 </thead>                                
@@ -74,14 +75,15 @@
     $(document).ready(function() {
     $('#dataTables-example').DataTable({
         ajax: {
-            url: "/ajax/resources.json",
-            dataSrc: 'responseData'
+            url: "/getresources",
+            dataSrc: 'data'
             
         },
         columns: [
-          { data: "Tipo Risorsa" }, 
-          { data: "Nome" }, 
-          { data: "Limite" },
+          { data: "id" }, 
+          { data: "type" }, 
+          { data: "name" },
+          { data: "limit" }
  
         ]
     });
