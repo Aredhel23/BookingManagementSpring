@@ -1,13 +1,20 @@
 package it.ariadne.bookingManagementSpring.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import it.ariadne.bookingManagementSpring.dao.ResourseDAO;
+import it.ariadne.bookingManagementSpring.entity.impl.Projector;
+import it.ariadne.bookingManagementSpring.utils.TableResponse;
+
 
 @Controller
 public class MainController {
-	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
+	@RequestMapping(value = {"/home" }, method = RequestMethod.GET)
     public String homePage(Model model) {
         return "homePage";
     }
@@ -37,5 +44,25 @@ public class MainController {
     public String prenotazioniutente(Model model) {
         return "prenotazioniutente";
     }
+	
+	@RequestMapping(value = { "/newlogin"}, method = RequestMethod.GET)
+    public String newlogin(Model model) {
+        return "newlogin";
+    }
+	
+	@Autowired
+	ResourseDAO resourceDAO;
+	
+	@Autowired
+	TableResponse<Projector> proj;
+	
+	@ResponseBody
+	@RequestMapping("/getresources")
+	public TableResponse<Projector> index() {
+		Iterable<Projector> all = resourceDAO.findAll();
+		
+		proj.setData(all);
+		return proj;
+	}
 
 }
