@@ -63,7 +63,16 @@
     <definition name="richiesteutente" extends="baseuser.definition">  
         <put-attribute name="title" value="Richieste" />  
         <put-attribute name="body" value="/WEB-INF/bodyfragments/_userrichieste.jsp" />  
-    </definition>  
+    </definition>
+    
+    <definition name="newlogin" 
+        template="/WEB-INF/layouts/classic.jsp">  
+        <put-attribute name="title" value="" />  
+        <put-attribute name="header" value="" />  
+        <put-attribute name="menu" value="" />  
+        <put-attribute name="body" value="/WEB-INF/login.jsp" />  
+        <put-attribute name="footer" value="/WEB-INF/basefragments/_footer.jsp" />  
+    </definition>   
  
   
 </tiles-definitions> 
