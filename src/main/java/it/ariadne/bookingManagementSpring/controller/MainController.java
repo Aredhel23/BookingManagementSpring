@@ -1,6 +1,7 @@
 package it.ariadne.bookingManagementSpring.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,9 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.ariadne.bookingManagementSpring.dao.ResourceDAO;
 import it.ariadne.bookingManagementSpring.entity.Resource;
+import it.ariadne.bookingManagementSpring.entity.impl.Car;
+import it.ariadne.bookingManagementSpring.entity.impl.Projector;
 import it.ariadne.bookingManagementSpring.utils.TableResponse;
 import it.ariadne.bookingManagementSpring.utils.WebUtils;
-
+import it.ariadne.bookingManagementSpring.entity.Resource;
 
 
 @Controller
@@ -73,18 +76,7 @@ public class MainController {
 		proj.setData(all);
 		return proj;
 	}
-	
-	 @RequestMapping("/default")
-	    public String defaultAfterLogin(HttpServletRequest request) {
-	        if (request.isUserInRole("ROLE_ADMIN")) {
-	            return "redirect:/home/";
-	        }
-	        else if(request.isUserInRole("ROLE_USER")) {
-	        	return "redirect:/userhome/";
-	        }
-	        return "redirect:/newlogin/";
-	    }
-	 
+		 
 	 @RequestMapping(value = "/403Page", method = RequestMethod.GET)
 	    public String accessDenied(Model model, Principal principal) {
 	 
@@ -103,5 +95,31 @@ public class MainController {
 	 
 	        return "403Page";
 	    }
+	 
+	 @RequestMapping(value = "/addResource", method = RequestMethod.POST)
+	 public String addResource(HttpServletRequest request, Model model ) {
+		 String type = request.getParameter("type");
+		 String name = request.getParameter("name");
+		 int limes = Integer.parseInt(request.getParameter("limes"));
+		 Resource r = null;
+		 	if(type.equals("Macchina")) {
+		 		r = new Car();
+		 	}
+		 	else if(type.equals("Proiettore")) {
+		 		r = new Projector();
+		 	}
+		 	else {
+		 		String error = "Risorsa non aggiunta, non presente tra le scelte possibili";		 		
+		 		model.addAttribute("error", error);		 		
+		 		return "risorse";
+		 	}
+		 	r.setLim(limes);
+		 	r.setName(name);
+		 	resourceDAO.save(r);
+		 	String mess = "Risorsa Aggiunta con Successo";
+		 	model.addAttribute("mess", mess);
+		 	return "risorse";
+		 	
+		}
 
 }
