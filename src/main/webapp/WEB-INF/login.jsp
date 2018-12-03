@@ -41,11 +41,25 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
+                    <!-- /login?error=true -->
+				      <%if(request.getParameter("error")!=null){ %>
+				      <div style="color:red;margin:10px 0px;">
+				         Login Failed!!!<br />
+				         Reason :
+				         <% if(session!= null && session.getAttribute("SPRING_SECURITY_LAST_EXCEPTION") != null) {%>
+				         <span> ${SPRING_SECURITY_LAST_EXCEPTION.message}
+				                Static summary
+				         </span>
+				         
+				         <%} %>
+				            
+				      </div>
+				      <%} %>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" action="/j_spring_security_check" method='POST'>
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="username" name="username" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
@@ -56,7 +70,7 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                <input name="submit" type="submit" value="Login" class="btn btn-lg btn-success btn-block" />
                             </fieldset>
                         </form>
                     </div>
