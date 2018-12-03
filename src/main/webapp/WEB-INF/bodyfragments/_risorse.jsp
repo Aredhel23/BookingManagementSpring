@@ -21,6 +21,8 @@
                         <div class="panel-heading">
                            Risorse Disponibili
                         </div>
+                         <font color="red"><b>${error}</b></font>
+                        <font color="green"><b>${mess}</b></font>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
