@@ -7,8 +7,8 @@ import it.ariadne.bookingManagementSpring.entity.Resource;
 
 @Entity
 @Table(name="RESOURCE")
-public class Projector extends Resource {
-//	private String type = super.setType("Projector");
+public class Car extends Resource {
+//	private String type = super.setType("Car");
 //	@Override
 //	public String getType() {
 //		
@@ -18,4 +18,7 @@ public class Projector extends Resource {
 //	public String setType(String type) {
 //				return "Azione non permessa";
 //	}
+	
+	
+
 }
