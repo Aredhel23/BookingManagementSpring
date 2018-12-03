@@ -1,8 +1,12 @@
 package it.ariadne.bookingManagementSpring.controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import it.ariadne.bookingManagementSpring.dao.ResourseDAO;
 import it.ariadne.bookingManagementSpring.entity.impl.Projector;
 import it.ariadne.bookingManagementSpring.utils.TableResponse;
+import it.ariadne.bookingManagementSpring.utils.WebUtils;
+
 
 
 @Controller
@@ -77,6 +83,25 @@ public class MainController {
 	        	return "redirect:/userhome/";
 	        }
 	        return "redirect:/newlogin/";
+	    }
+	 
+	 @RequestMapping(value = "/403Page", method = RequestMethod.GET)
+	    public String accessDenied(Model model, Principal principal) {
+	 
+	        if (principal != null) {
+	            User loginedUser = (User) ((Authentication) principal).getPrincipal();
+	 
+	            String userInfo = WebUtils.toString(loginedUser);
+	 
+	            model.addAttribute("userInfo", userInfo);
+	 
+	            String message = "Hi " + principal.getName() //
+	                    + "<br> You do not have permission to access this page!";
+	            model.addAttribute("message", message);
+	 
+	        }
+	 
+	        return "403Page";
 	    }
 
 }
