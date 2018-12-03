@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.ariadne.bookingManagementSpring.dao.ResourceDAO;
-import it.ariadne.bookingManagementSpring.entity.impl.Projector;
+import it.ariadne.bookingManagementSpring.entity.Resource;
 import it.ariadne.bookingManagementSpring.utils.TableResponse;
 import it.ariadne.bookingManagementSpring.utils.WebUtils;
 
@@ -63,12 +63,12 @@ public class MainController {
 	ResourceDAO resourceDAO;
 	
 	@Autowired
-	TableResponse<Projector> proj;
+	TableResponse<Resource> proj;
 	
 	@ResponseBody
 	@RequestMapping("/getresources")
-	public TableResponse<Projector> index() {
-		Iterable<Projector> all = resourceDAO.findAll();
+	public TableResponse<Resource> index() {
+		Iterable<Resource> all = resourceDAO.findAll();
 		
 		proj.setData(all);
 		return proj;

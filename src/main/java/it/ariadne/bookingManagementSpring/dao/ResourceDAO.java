@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import it.ariadne.bookingManagementSpring.entity.impl.Projector;
+import it.ariadne.bookingManagementSpring.entity.Resource;
+
+
 
 @Repository
-public interface ResourceDAO extends CrudRepository<Projector, Long>{
-    public List<Projector> findByTypeLike(String name);
-    public List<Projector> findByNameLike(String name);
+public interface ResourceDAO extends CrudRepository<Resource, Long>{
+    //public List<Resource> findByTypeLike(String name);
+    public List<Resource> findByNameLike(String name);
 
  
 
