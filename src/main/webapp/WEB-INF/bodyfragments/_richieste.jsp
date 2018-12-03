@@ -55,35 +55,26 @@
 		                            
 		                            <div class="row">
 		                                <div class="col-lg-6">
-		                                <%
-		                                	String name = (String)session.getAttribute("name");
-		                                	String error = (String)session.getAttribute("error");
-		                                	String mess = (String)session.getAttribute("mess");
-		                                %>
-		                                <font color="red"><b><%=error!=null?error:"" %></b></font>
-		                                <font color="green"><b><%=mess!=null?mess:"" %></b></font>
-		                                    <form role="form" method = "POST" action="/gigetto">
+		                       
+		                                    <form role="form" method = "POST" action="/addResource">
 		                                        <div class="form-group">
 		                                            <label>Seleziona Risorsa</label>
-		                                            <select name="name" class="form-control" required value="<%=name!=null?name:"" %>">
+		                                            <select name="type" class="form-control">
 		                                                <option>Proiettore</option>
 		                                                <option>Macchina</option>
 		                                                <option>Laptop</option>
 		                                                <option>Aula</option>
 		                                                <option>Ufficio</option>
 		                                            </select>
+		                                            <label>Nome</label>
+		                                            <input name = "name" type = "text"/>
+		                                            <label>Imposta limite</label>
+		                                            <input name = "limes" type = "number" min = "0" step="1" />		                                            
 		                                        </div>
 		                                        <button type="submit" class="btn btn-default"  >Aggiungi</button>
 		                                        <button type="reset" class="btn btn-default">Reset</button>
 		                                    </form>
-		                                    <form role="form" method = "POST" action="/gigetto">
-		                                        <div class="form-group">
-		                                            <label>Seleziona Risorsa</label>
-		                                            <input name="name" type="text" value="<%=name!=null?name:"" %>" >
-		                                        </div>
-		                                        <button type="submit" class="btn btn-default"  >Aggiungi</button>
-		                                        <button type="reset" class="btn btn-default">Reset</button>
-		                                    </form>
+		                                   
 		                                </div>
 		                                <!-- /.col-lg-6 (nested) -->
 		                                
