@@ -64,5 +64,16 @@ public class MainController {
 		proj.setData(all);
 		return proj;
 	}
+	
+	 @RequestMapping("/default")
+	    public String defaultAfterLogin(HttpServletRequest request) {
+	        if (request.isUserInRole("ROLE_ADMIN")) {
+	            return "redirect:/home/";
+	        }
+	        else if(request.isUserInRole("ROLE_USER")) {
+	        	return "redirect:/userhome/";
+	        }
+	        return "redirect:/newlogin/";
+	    }
 
 }
