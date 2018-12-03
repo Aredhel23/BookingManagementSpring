@@ -1,5 +1,7 @@
 package it.ariadne.bookingManagementSpring.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,10 +47,11 @@ public class MainController {
         return "prenotazioniutente";
     }
 	
-	@RequestMapping(value = { "/newlogin"}, method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/newlogin"}, method = RequestMethod.GET)
     public String newlogin(Model model) {
         return "newlogin";
     }
+	
 	
 	@Autowired
 	ResourseDAO resourceDAO;
