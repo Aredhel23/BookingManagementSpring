@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import it.ariadne.bookingManagementSpring.dao.ResourseDAO;
+import it.ariadne.bookingManagementSpring.dao.ResourceDAO;
 import it.ariadne.bookingManagementSpring.entity.impl.Projector;
 import it.ariadne.bookingManagementSpring.utils.TableResponse;
 import it.ariadne.bookingManagementSpring.utils.WebUtils;
@@ -60,7 +60,7 @@ public class MainController {
 	
 	
 	@Autowired
-	ResourseDAO resourceDAO;
+	ResourceDAO resourceDAO;
 	
 	@Autowired
 	TableResponse<Projector> proj;

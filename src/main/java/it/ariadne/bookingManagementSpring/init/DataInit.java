@@ -9,7 +9,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import it.ariadne.bookingManagementSpring.dao.ResourseDAO;
+import it.ariadne.bookingManagementSpring.dao.ResourceDAO;
 import it.ariadne.bookingManagementSpring.entity.Resource;
 import it.ariadne.bookingManagementSpring.entity.impl.Projector;
 
@@ -17,12 +17,12 @@ import it.ariadne.bookingManagementSpring.entity.impl.Projector;
 @Component
 public class DataInit implements ApplicationRunner {
  
-    private ResourseDAO resourceDAO;
+    private ResourceDAO resourceDAO;
  
     private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
  
     @Autowired
-    public DataInit(ResourseDAO resourceDAO) {
+    public DataInit(ResourceDAO resourceDAO) {
         this.resourceDAO = resourceDAO;
     }
  
