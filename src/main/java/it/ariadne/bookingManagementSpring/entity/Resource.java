@@ -17,8 +17,8 @@ public class Resource {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-//	@Column(name = "Type", length = 64, nullable = false)
-//    private String type;
+	@Column(name = "Type", length = 64, nullable = false)
+    private String type;
 	
 	@Column(name = "limes", length = 64, nullable = false)
 	private int lim;
@@ -30,9 +30,9 @@ public class Resource {
 		return id;
 	}
 
-//	public String getType() {
-//		return type;
-//	}
+	public String getType() {
+		return type;
+	}
 
 	public int getLim() {
 		return lim;
@@ -46,9 +46,9 @@ public class Resource {
 		this.id = id;
 	}
 
-//	public String setType(String type) {
-//		return this.type = type;
-//	}
+	public String setType(String type) {
+		return this.type = type;
+	}
 
 	public void setLim(int lim) {
 		this.lim = lim;
