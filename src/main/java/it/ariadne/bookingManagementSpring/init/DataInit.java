@@ -2,7 +2,6 @@ package it.ariadne.bookingManagementSpring.init;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -11,13 +10,16 @@ import org.springframework.stereotype.Component;
 
 import it.ariadne.bookingManagementSpring.dao.ResourceDAO;
 import it.ariadne.bookingManagementSpring.entity.Resource;
+import it.ariadne.bookingManagementSpring.entity.impl.Car;
 import it.ariadne.bookingManagementSpring.entity.impl.Projector;
+
 
 
 @Component
 public class DataInit implements ApplicationRunner {
  
     private ResourceDAO resourceDAO;
+
  
     private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
  
@@ -31,23 +33,26 @@ public class DataInit implements ApplicationRunner {
         long count = resourceDAO.count();
  
         if (count == 0) {
-            Projector p1 = new Projector();
+            Resource p1 = new Projector();
  
             p1.setName("num1");
-            p1.setType("Projector");
-            p1.setLimit(256);
+            p1.setLim(256);
             
-            Projector p2 = new Projector();
+            Resource p2 = new Projector();
             
             p2.setName("num2");
-            p2.setType("Projector");
-            p2.setLimit(256);
+            p2.setLim(256);
  
-            
+            Resource c1 = new Car();
+            c1.setName("Porche Cayenne");
+         
+            c1.setLim(5);
             
  
             resourceDAO.save(p1);
             resourceDAO.save(p2);
+            resourceDAO.save(c1);
+            
         }
  
     }
