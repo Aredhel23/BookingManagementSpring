@@ -85,7 +85,7 @@
           { data: "id" }, 
           { data: "type" }, 
           { data: "name" },
-          { data: "limit" }
+          { data: "lim" }
  
         ]
     });
