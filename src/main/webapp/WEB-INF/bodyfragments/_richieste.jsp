@@ -95,16 +95,12 @@
 		                            
 		                            <div class="row">
 		                                <div class="col-lg-6">
-		                                    <form role="form">
-		                                        <div class="form-group">                                            
-		                                            <label>Data</label>
-		                                            <div class='input-group date' id='datetimepicker1'>
-		                                                <input type='date' class="form-control" required />
-		                                            </div>                                            
-		                                        </div>
+		                                    <form role="form" method = "POST" action=\deleteResource>
 		                                        <div class="form-group">
+		                                        	<font color="red"><b>${error}</b></font>
+                        							<font color="green"><b>${mess}</b></font>
 		                                            <label>Select Resource</label>
-		                                            <select class="form-control" required>
+		                                            <select name = "type" class="form-control" required>
 		                                                <option>Proiettore</option>
 		                                                <option>Macchina</option>
 		                                                <option>Laptop</option>
@@ -113,14 +109,8 @@
 		                                            </select>
 		                                        </div>
 		                                        <div class="form-group">
-		                                            <label>Multiple Selects</label>
-		                                            <select multiple class="form-control" required>
-		                                                <option>1</option>
-		                                                <option>2</option>
-		                                                <option>3</option>
-		                                                <option>4</option>
-		                                                <option>5</option>
-		                                            </select>
+		                                            <label>ID</label>
+		                                            <input name="id" type="number" min = "0" />
 		                                        </div>
 		                                        <button type="submit" class="btn btn-default">Elimina</button>
 		                                        <button type="reset" class="btn btn-default">Reset</button>
