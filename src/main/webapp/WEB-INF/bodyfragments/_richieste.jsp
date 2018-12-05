@@ -125,6 +125,50 @@
 		                        <!-- /.panel-body -->
 		                    </div>
 		                    <!-- /.panel -->
+		                    <div class="panel panel-default">
+		                        <div class="panel-heading">
+		                            Modifica Risorsa
+		                        </div>
+		                        <div class="panel-body">
+		                            
+		                            <div class="row">
+		                                <div class="col-lg-6">
+		                       
+		                                    <form role="form" method = "POST" action="/addResource">
+		                                        <div class="form-group">
+		                                        <div class="form-group">
+		                                            <label>ID</label>
+		                                            <input name="id" type="number" min = "0" />
+		                                        </div>
+		                                            <label>Seleziona Risorsa</label>
+		                                            <select name="type" class="form-control">
+		                                                <option>Proiettore</option>
+		                                                <option>Macchina</option>
+		                                                <option>Laptop</option>
+		                                                <option>Aula</option>
+		                                                <option>Ufficio</option>
+		                                            </select>
+		                                            <label>Nome</label>
+		                                            <input name = "name" type = "text"/>
+		                                            <label>Imposta limite</label>
+		                                            <input name = "limes" type = "number" min = "0" step="1" />		                                            
+		                                        </div>
+		                                        <button type="submit" class="btn btn-default"  >Aggiungi</button>
+		                                        <button type="reset" class="btn btn-default">Reset</button>
+		                                    </form>
+		                                   
+		                                </div>
+		                                <!-- /.col-lg-6 (nested) -->
+		                                
+		                                
+		                            </div>
+		                            <!-- /.row (nested) -->
+		                            
+		                            
+		                        </div>
+		                        <!-- /.panel-body -->
+		                    </div>
+		                    <!-- /.panel -->
 		                </div>
 		                <!-- /.col-lg-6 -->
 		                
