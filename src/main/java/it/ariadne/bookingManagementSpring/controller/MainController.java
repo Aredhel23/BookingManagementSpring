@@ -2,6 +2,7 @@ package it.ariadne.bookingManagementSpring.controller;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -121,5 +122,30 @@ public class MainController {
 		 	return "risorse";
 		 	
 		}
+	 
+	 @RequestMapping(value = "/deleteResource", method = RequestMethod.POST)
+	 public String deleteResource(HttpServletRequest request, Model model ) {
+		 int id = Integer.parseInt(request.getParameter("id"));
+		 Optional<Resource> r = resourceDAO.findById((long) id);
+		 if(r.isPresent()) {
+			 if(r.get().getType().equals(request.getParameter("type"))) {
+				 resourceDAO.deleteById((long) id);
+				 String mess = "Risorsa Eliminata con Successo";
+				 	model.addAttribute("mess", mess);
+				 return "risorse";
+				 } 
+			 else {
+				 String error = "Risorsa non eliminata, id non corrispondente al tipo di risorsa selezionato";		 		
+			 	 model.addAttribute("error", error);
+				 return "richieste";
+			 }
+		 }
+		 else {
+			 String error = "Risorsa non eliminata, non presente nel database";		 		
+		 	 model.addAttribute("error", error);		 		
+		 	 return "risorse";			 
+		 }
+		 
+	 }
 
 }
