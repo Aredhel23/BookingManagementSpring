@@ -134,8 +134,10 @@
 		                            <div class="row">
 		                                <div class="col-lg-6">
 		                       
-		                                    <form role="form" method = "POST" action="/addResource">
+		                                    <form role="form" method = "POST" action="/editResource">
 		                                        <div class="form-group">
+		                                        <font color="red"><b>${errorEdit}</b></font>
+                        							<font color="green"><b>${messEdit}</b></font>
 		                                        <div class="form-group">
 		                                            <label>ID</label>
 		                                            <input name="id" type="number" min = "0" />
@@ -148,12 +150,12 @@
 		                                                <option>Aula</option>
 		                                                <option>Ufficio</option>
 		                                            </select>
-		                                            <label>Nome</label>
-		                                            <input name = "name" type = "text"/>
-		                                            <label>Imposta limite</label>
-		                                            <input name = "limes" type = "number" min = "0" step="1" />		                                            
+		                                            <label>Limite Precedente</label>
+		                                            <input name = "oldLimes" type = "number" min = "0" step="1" />
+		                                            <label>Limite Desiderato</label>
+		                                            <input name = "newLimes" type = "number" min = "0" step="1" />		                                            
 		                                        </div>
-		                                        <button type="submit" class="btn btn-default"  >Aggiungi</button>
+		                                        <button type="submit" class="btn btn-default" >Modifica</button>
 		                                        <button type="reset" class="btn btn-default">Reset</button>
 		                                    </form>
 		                                   
