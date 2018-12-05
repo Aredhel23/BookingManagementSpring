@@ -147,5 +147,33 @@ public class MainController {
 		 }
 		 
 	 }
+	 
+	 @RequestMapping(value = "/editResource", method = RequestMethod.POST)
+	 public String editResource(HttpServletRequest request, Model model ) {
+		 int id = Integer.parseInt(request.getParameter("id"));
+		 int oldLim = Integer.parseInt(request.getParameter("oldLimes"));
+		 int newLim = Integer.parseInt(request.getParameter("newLimes"));
+		 Optional<Resource> r = resourceDAO.findById((long) id);
+		 if(r.isPresent()) {
+			 if(r.get().getType().equals(request.getParameter("type")) && r.get().getLim()== oldLim) {
+				 r.get().setLim(newLim);
+				 resourceDAO.save(r.get());
+				 String mess = "Risorsa Modificata con Successo";
+				 	model.addAttribute("messEdit", mess);
+				 return "risorse";
+				 } 
+			 else {
+				 String error = "Risorsa non modificata, id, o limite non corrispondente al tipo di risorsa selezionato";		 		
+			 	 model.addAttribute("errorEdit", error);
+				 return "richieste";
+			 }
+		 }
+		 else {
+			 String error = "Risorsa non modificata, non presente nel database";		 		
+		 	 model.addAttribute("error", error);		 		
+		 	 return "risorse";			 
+		 }
+		 
+	 }
 
 }
