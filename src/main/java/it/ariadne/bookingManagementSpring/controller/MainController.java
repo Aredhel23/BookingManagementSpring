@@ -105,6 +105,29 @@ public class MainController {
 		book.setData(prin);
 		return book;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/getuserbookings")	
+	public TableResponse<BookPrinter> indexUserbook(Model model, Principal principal) {
+		Iterable<Bookings> all = bookingsDAO.findAll();
+		List<BookPrinter> prin = new ArrayList<>();		
+		for(Bookings b : all) {
+			if(b.getAppUser().getUserName().equals(principal.getName())) {
+				 BookPrinter bPrin = new BookPrinter();
+				 Resource r = b.getResource();
+				 bPrin.setName(b.getName());
+				 bPrin.setResourceId(r.getId());
+				 bPrin.setResourceLim(r.getLim());
+				 bPrin.setResourceName(r.getName());
+				 bPrin.setStart(b.getStartDate());
+				 bPrin.setEnd(b.getEndDate());
+				 bPrin.setUser(b.getAppUser().getUserName());
+				 prin.add(bPrin);			
+			}
+		}
+		book.setData(prin);
+		return book;
+	}
 		 
 	 @RequestMapping(value = "/403Page", method = RequestMethod.GET)
 	    public String accessDenied(Model model, Principal principal) {
