@@ -1,13 +1,12 @@
 package it.ariadne.bookingManagementSpring.entity;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,12 +18,26 @@ import javax.persistence.TemporalType;
 @Table(name="BOOKINGS")
 public class Bookings {
 	
+	private static final long serialVersionUID = 1L;
 	@Id
-    @GeneratedValue
-    @Column(name = "Id", nullable = false)
-    private Long id;
+	@Column
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	@Column
+	private String name;
  
-    @ManyToOne(fetch = FetchType.LAZY)
+    public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Resource_Id", nullable = false)
     private Resource resource;
     
@@ -82,13 +95,13 @@ public class Bookings {
 	}
 
 
-	public void setStartDate(Date startDate) throws ParseException {
+	public void setStartDate(Date startDate) {
 		
 		this.startDate = startDate;
 	}
 
 
-	public void setEndDate(Date endDate) throws ParseException {
+	public void setEndDate(Date endDate) {
 		
 		this.endDate = endDate;
 	}
