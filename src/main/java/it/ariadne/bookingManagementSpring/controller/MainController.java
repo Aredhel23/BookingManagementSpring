@@ -1,6 +1,7 @@
 package it.ariadne.bookingManagementSpring.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,13 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import it.ariadne.bookingManagementSpring.dao.BookingsDAO;
 import it.ariadne.bookingManagementSpring.dao.ResourceDAO;
+import it.ariadne.bookingManagementSpring.entity.Bookings;
 import it.ariadne.bookingManagementSpring.entity.Resource;
 import it.ariadne.bookingManagementSpring.entity.impl.Car;
 import it.ariadne.bookingManagementSpring.entity.impl.Projector;
+import it.ariadne.bookingManagementSpring.printer.BookPrinter;
 import it.ariadne.bookingManagementSpring.utils.TableResponse;
 import it.ariadne.bookingManagementSpring.utils.WebUtils;
-import it.ariadne.bookingManagementSpring.entity.Resource;
 
 
 @Controller
@@ -65,17 +68,42 @@ public class MainController {
 	
 	@Autowired
 	ResourceDAO resourceDAO;
+	@Autowired
+	BookingsDAO bookingsDAO;
 	
 	@Autowired
 	TableResponse<Resource> proj;
 	
+	@Autowired
+	TableResponse<BookPrinter> book;
+	
 	@ResponseBody
 	@RequestMapping("/getresources")
 	public TableResponse<Resource> index() {
-		Iterable<Resource> all = resourceDAO.findAll();
-		
+		Iterable<Resource> all = resourceDAO.findAll();		
 		proj.setData(all);
 		return proj;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/getbookings")	
+	public TableResponse<BookPrinter> indexbook() {
+		Iterable<Bookings> all = bookingsDAO.findAll();
+		List<BookPrinter> prin = new ArrayList<>();		
+		for(Bookings b : all) {
+			 BookPrinter bPrin = new BookPrinter();
+			 Resource r = b.getResource();
+			 bPrin.setName(b.getName());
+			 bPrin.setResourceId(r.getId());
+			 bPrin.setResourceLim(r.getLim());
+			 bPrin.setResourceName(r.getName());
+			 bPrin.setStart(b.getStartDate());
+			 bPrin.setEnd(b.getEndDate());
+			 bPrin.setUser(b.getAppUser().getUserName());
+			 prin.add(bPrin);			
+		}
+		book.setData(prin);
+		return book;
 	}
 		 
 	 @RequestMapping(value = "/403Page", method = RequestMethod.GET)
