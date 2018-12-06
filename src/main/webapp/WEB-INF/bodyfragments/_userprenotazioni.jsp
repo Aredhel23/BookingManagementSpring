@@ -58,99 +58,16 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Risorsa</th>
-                                        <th>Data</th>
-                                        <th>Ora</th>
                                         <th>Nome Prenotazione</th>
-                                        
+                                        <th>Id Risorsa</th>
+                                        <th>Nome Risorsa</th>
+                                        <th>Limite Risorsa</th>
+                                        <th>Inizio</th>
+                                        <th>Fine</th>
+                                        <th>Nome Utente</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                        
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>Proiettore</td>
-                                        <td>08/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Analisi</td>
-                                        
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Proiettore</td>
-                                        <td>09/01/2019</td>
-                                        <td>11-13</td>
-                                        <td>lezione Fisica</td>
-                                        
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Macchina</td>
-                                        <td>10/01/2019</td>
-                                        <td>9-18</td>
-                                        <td>Milano</td>
-                                        
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Macchina</td>
-                                        <td>15/01/2019</td>
-                                        <td>9-22</td>
-                                        <td>Torino</td>
-                                        
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Laptop</td>
-                                        <td>18/01/2019</td>
-                                        <td>9-13</td>
-                                        <td>Riunione</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Laptop</td>
-                                        <td>01/02/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>07/03/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                       
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>09/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
+                                
                             </table>
                             <!-- /.table-responsive -->
                             
@@ -476,12 +393,33 @@
 
     </div>
     <!-- /#wrapper -->
+    
+    <!-- DataTables JavaScript -->
+    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+    
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
+    $('#dataTables-example').DataTable({
+        ajax: {
+            url: "/getuserbookings",
+            dataSrc: 'data'
+            
+        },
+        columns: [
+          { data: "name" }, 
+          { data: "resourceId" }, 
+          { data: "resourceName" },
+          { data: "resourceLim" },
+          { data: "start" },
+          { data: "end" },
+          { data: "user" }
+ 
+        ]
+    });
     });
     </script>
     <script>
