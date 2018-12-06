@@ -59,99 +59,16 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Risorsa</th>
-                                        <th>Data</th>
-                                        <th>Ora</th>
                                         <th>Nome Prenotazione</th>
+                                        <th>Id Risorsa</th>
+                                        <th>Nome Risorsa</th>
+                                        <th>Limite Risorsa</th>
+                                        <th>Inizio</th>
+                                        <th>Fine</th>
                                         <th>Nome Utente</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                        
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Analisi</td>
-                                        <td>Gianluca Verdi</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>11-13</td>
-                                        <td>lezione Fisica</td>
-                                        <td>Giorgio Giorgi</td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Macchina</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-18</td>
-                                        <td>Milano</td>
-                                        <td>Gaia Mancini</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Macchina</td>
-                                        <td>03/01/2019</td>
-                                        <td>9-22</td>
-                                        <td>Torino</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Laptop</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-13</td>
-                                        <td>Riunione</td>
-                                        <td>Luca Rossi</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Laptop</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
+                                
                             </table>
                             <!-- /.table-responsive -->
                             
@@ -179,9 +96,23 @@
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
+    $('#dataTables-example').DataTable({
+        ajax: {
+            url: "/getbookings",
+            dataSrc: 'data'
+            
+        },
+        columns: [
+          { data: "name" }, 
+          { data: "resourceId" }, 
+          { data: "resourceName" },
+          { data: "resourceLim" },
+          { data: "start" },
+          { data: "end" },
+          { data: "user" }
+ 
+        ]
+    });
     });
     </script>
 	</body>
