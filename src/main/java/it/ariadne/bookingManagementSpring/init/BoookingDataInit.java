@@ -52,7 +52,7 @@ public class BoookingDataInit implements ApplicationRunner {
         	AppUser user = app.findUserAccount("dbuser1");
         	b1.setAppUser(user);
         	Optional<Resource> r = resourceDAO.findById((long) 15);
-        	
+        	b1.setName("ciao");
         	b1.setResource(r.get());
         	bookingsDao.save(b1);
         }
