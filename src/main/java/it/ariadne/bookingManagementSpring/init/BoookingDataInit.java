@@ -54,7 +54,15 @@ public class BoookingDataInit implements ApplicationRunner {
         	Optional<Resource> r = resourceDAO.findById((long) 15);
         	b1.setName("ciao");
         	b1.setResource(r.get());
+        	Bookings b2 = new Bookings();
+        	b2.setStartDate(startDate.toDate());
+        	b2.setEndDate(endDate.toDate());
+        	AppUser user2 = app.findUserAccount("dbuser2");
+        	b2.setAppUser(user2);
+        	b2.setName("ciao");
+        	b2.setResource(r.get());
         	bookingsDao.save(b1);
+        	bookingsDao.save(b2);
         }
 	
 	}
