@@ -233,6 +233,52 @@ public class MainController {
 	}
 
 	// ------------Bookings Management-------------------------------------------
+	@RequestMapping(value = "/user/availabilitybookings", method = RequestMethod.POST)
+	public String availabilityBooking(HttpServletRequest request, Model model, Principal principal) {
+		long idResource = (long) Integer.parseInt(request.getParameter("id"));
+		Optional<Resource> r = resourceDAO.findById(idResource);
+		if (r.isPresent()) {
+			if (r.get().getType().equals(request.getParameter("type"))) {
+				AvailabilityUtils avut = new AvailabilityUtils();
+				Iterable<Bookings> book = bookingsDAO.findByResource(r.get());
+				DateTimeFormatter df = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");
+				String start = request.getParameter("startDate") + " " + request.getParameter("startHour");
+				DateTime dStart = df.parseDateTime(start);
+				String end = request.getParameter("endDate") + " " + request.getParameter("endHour");
+				DateTime dEnd = df.parseDateTime(end);
+				if(dStart.isAfter(dEnd)) {
+					String error = "Errore: Inizio dopo la Fine!";
+					model.addAttribute("errorav1", error);
+					return "richiesteutente";
+				}
+				if(avut.bookingRequest(book, dStart, dEnd)) {
+					String mess = "Risorsa Disponibile! Affrettati a prenotare!";
+					model.addAttribute("messav1", mess);
+					return "richiesteutente";
+				}
+				else {
+					String error = "Risorsa non Disponibile!";
+					model.addAttribute("errorav1", error);
+					return "richiesteutente";
+					
+				}
+			}
+			else {
+				String error = "Id non corrispondente al tipo di Risorsa";
+				model.addAttribute("errorav1", error);
+				return "richiesteutente";
+				
+			}
+			
+		}
+		else {
+			String error = "Risorsa non presente nel database";
+			model.addAttribute("errorav1", error);
+			return "richiesteutente";
+		}
+	}
+	
+	
 	@RequestMapping(value = "/user/firstavailabilitybookings", method = RequestMethod.POST)
 	public String firstavailabilityBooking(HttpServletRequest request, Model model, Principal principal) {
 		long idResource = (long) Integer.parseInt(request.getParameter("id"));
