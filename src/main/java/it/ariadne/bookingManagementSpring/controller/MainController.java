@@ -92,6 +92,8 @@ public class MainController {
 		return proj;
 	}
 	
+	// -------------------Bookings Printing-----------------------------------------------
+	
 	@ResponseBody
 	@RequestMapping("/getbookings")	
 	public TableResponse<BookPrinter> indexbook() {
@@ -120,8 +122,9 @@ public class MainController {
 		List<BookPrinter> prin = new ArrayList<>();		
 		for(Bookings b : all) {
 			if(b.getAppUser().getUserName().equals(principal.getName())) {
-				 BookPrinter bPrin = new BookPrinter();
+				 BookPrinter bPrin = new BookPrinter();				 
 				 Resource r = b.getResource();
+				 bPrin.setId(b.getId());
 				 bPrin.setName(b.getName());
 				 bPrin.setResourceId(r.getId());
 				 bPrin.setResourceLim(r.getLim());
@@ -146,6 +149,7 @@ public class MainController {
 				if(d.isAfterNow()) {
 					BookPrinter bPrin = new BookPrinter();
 					 Resource r = b.getResource();
+					 bPrin.setId(b.getId());
 					 bPrin.setName(b.getName());
 					 bPrin.setResourceId(r.getId());
 					 bPrin.setResourceLim(r.getLim());
@@ -170,7 +174,8 @@ public class MainController {
 				DateTime d = new DateTime(b.getStartDate());
 				if (d.isBeforeNow()) {
 					 Resource r = b.getResource();					
-					 BookPrinter bPrin = new BookPrinter();					 
+					 BookPrinter bPrin = new BookPrinter();
+					 bPrin.setId(b.getId());
 					 bPrin.setName(b.getName());
 					 bPrin.setResourceId(r.getId());
 					 bPrin.setResourceLim(r.getLim());
@@ -185,6 +190,8 @@ public class MainController {
 		pastbook.setData(prin);
 		return pastbook;
 	}
+	
+	//-------------------------Bookings Printing End-------------------------------------------------------
 		 
 	 @RequestMapping(value = "/403Page", method = RequestMethod.GET)
 	    public String accessDenied(Model model, Principal principal) {
