@@ -127,7 +127,10 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <form role="form">
-                                       
+                                       <div class="form-group">
+                                        	<label>ID</label>
+		                                    <input name="id" type="number" min = "0" required/>
+	                                    </div>
                                         <div class="form-group">
                                             <label>Tipo Risorsa</label>
                                             <select class="form-control" required>
@@ -144,12 +147,7 @@
                                                 <input type='number' class="form-control" min="0" step="0.5" required />
                                             </div>
                                         </div> 
-                                        <div class="form-group">                                            
-                                            <label>Requisito minimo</label>
-                                            <div class='input-group' id='limit'>
-                                                <input type='number' class="form-control" />
-                                            </div>
-                                        </div>
+                                        
                                         <div class="form-group">                                            
                                             <label>Data Inizio</label>
                                             <div class='input-group' id='time0'>
@@ -176,8 +174,7 @@
                                         <button type="reset" class="btn btn-default">Reset</button>
                                     </form>
                                 </div>
-                                <!-- /.col-lg-6 (nested) -->
-                                
+                                <!-- /.col-lg-6 (nested) -->                               
                                 
                             </div>
                             <!-- /.row (nested) -->
@@ -199,6 +196,10 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <form role="form">
+                                    <div class="form-group">
+                                        	<label>ID</label>
+		                                    <input name="id" type="number" min = "0" required/>
+	                                    </div>
                                         <div class="form-group">
                                             <label>Tipo Risorsa</label>
                                             <select class="form-control" required>
@@ -208,17 +209,7 @@
                                                 <option>Aula</option>
                                                 <option>Ufficio</option>
                                             </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Risorsa particolare</label>
-                                            <select multiple class="form-control" required>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
+                                        </div>                                        
                                         <div class="form-group">                                            
                                             <label>Nome prenotazione</label>
                                             <div class='input-group' id='book'>
