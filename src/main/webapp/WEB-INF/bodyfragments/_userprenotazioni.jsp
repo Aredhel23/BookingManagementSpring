@@ -75,109 +75,26 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                            Prenotazioni passate
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example1">
+                            <table width="90%" class="table table-striped table-bordered table-hover" id="dataTables-example1">
                                 <thead>
                                     <tr>
-                                        <th>Risorsa</th>
-                                        <th>Data</th>
-                                        <th>Ora</th>
                                         <th>Nome Prenotazione</th>
-                                        
+                                        <th>Id Risorsa</th>
+                                        <th>Nome Risorsa</th>
+                                        <th>Limite Risorsa</th>
+                                        <th>Inizio</th>
+                                        <th>Fine</th>
+                                        <th>Nome Utente</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                        
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>Proiettore</td>
-                                        <td>08/01/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Analisi</td>
-                                        
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Proiettore</td>
-                                        <td>09/01/2018</td>
-                                        <td>11-13</td>
-                                        <td>lezione Fisica</td>
-                                        
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Macchina</td>
-                                        <td>10/01/2018</td>
-                                        <td>9-18</td>
-                                        <td>Milano</td>
-                                        
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Macchina</td>
-                                        <td>15/01/2018</td>
-                                        <td>9-22</td>
-                                        <td>Torino</td>
-                                        
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Laptop</td>
-                                        <td>18/01/2018</td>
-                                        <td>9-13</td>
-                                        <td>Riunione</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Laptop</td>
-                                        <td>01/02/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>07/03/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                       
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>09/01/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
+                               
                             </table>
                             <!-- /.table-responsive -->
                             
@@ -186,195 +103,26 @@
                     </div>
                     <!-- /.panel -->
                     </div>
-                     <!-- /.col-lg-6 -->
-                    <div class="col-lg-6">
+                     <!-- /.col-lg-12 -->
+                    <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                            Cronologia Prenotazioni
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example2">
+                            <table width="90%" class="table table-striped table-bordered table-hover" id="dataTables-example2">
                                 <thead>
                                     <tr>
-                                        <th>Risorsa</th>
-                                        <th>Data</th>
-                                        <th>Ora</th>
                                         <th>Nome Prenotazione</th>
-                                        
+                                        <th>Id Risorsa</th>
+                                        <th>Nome Risorsa</th>
+                                        <th>Limite Risorsa</th>
+                                        <th>Inizio</th>
+                                        <th>Fine</th>
+                                        <th>Nome Utente</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                        
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>Proiettore</td>
-                                        <td>08/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Analisi</td>
-                                        
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Proiettore</td>
-                                        <td>09/01/2019</td>
-                                        <td>11-13</td>
-                                        <td>lezione Fisica</td>
-                                        
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Macchina</td>
-                                        <td>10/01/2019</td>
-                                        <td>9-18</td>
-                                        <td>Milano</td>
-                                        
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Macchina</td>
-                                        <td>15/01/2019</td>
-                                        <td>9-22</td>
-                                        <td>Torino</td>
-                                        
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Laptop</td>
-                                        <td>18/01/2019</td>
-                                        <td>9-13</td>
-                                        <td>Riunione</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Laptop</td>
-                                        <td>01/02/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>07/03/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                       
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>09/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                        
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>Proiettore</td>
-                                        <td>08/01/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Analisi</td>
-                                        
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Proiettore</td>
-                                        <td>09/01/2018</td>
-                                        <td>11-13</td>
-                                        <td>lezione Fisica</td>
-                                        
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Macchina</td>
-                                        <td>10/01/2018</td>
-                                        <td>9-18</td>
-                                        <td>Milano</td>
-                                        
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Macchina</td>
-                                        <td>15/01/2018</td>
-                                        <td>9-22</td>
-                                        <td>Torino</td>
-                                        
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Laptop</td>
-                                        <td>18/01/2018</td>
-                                        <td>9-13</td>
-                                        <td>Riunione</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Laptop</td>
-                                        <td>01/02/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>07/03/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                       
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>09/01/2018</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        
-                                    </tr>
                             </table>
                             <!-- /.table-responsive -->
                             
@@ -383,7 +131,7 @@
                     </div>
                     <!-- /.panel -->
                     </div>
-                <!-- /.col-lg-6 -->
+                <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -391,7 +139,6 @@
         </div>
         <!-- /#page-wrapper -->
 
-    </div>
     <!-- /#wrapper -->
     
     <!-- DataTables JavaScript -->
@@ -401,9 +148,31 @@
 
     
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    
     <script>
     $(document).ready(function() {
-    $('#dataTables-example').DataTable({
+    $('#dataTables-example1').DataTable({
+        ajax: {
+            url: "/getpastuserbookings",
+            dataSrc: 'data'
+            
+        },
+        columns: [
+          { data: "name" }, 
+          { data: "resourceId" }, 
+          { data: "resourceName" },
+          { data: "resourceLim" },
+          { data: "start" },
+          { data: "end" },
+          { data: "user" }
+ 
+        ]
+    });
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+    $('#dataTables-example2').DataTable({
         ajax: {
             url: "/getuserbookings",
             dataSrc: 'data'
@@ -424,16 +193,24 @@
     </script>
     <script>
     $(document).ready(function() {
-        $('#dataTables-example1').DataTable({
-            responsive: true
-        });
+    $('#dataTables-example').DataTable({
+        ajax: {
+            url: "/getfutureuserbookings",
+            dataSrc: 'data'
+            
+        },
+        columns: [
+          { data: "name" }, 
+          { data: "resourceId" }, 
+          { data: "resourceName" },
+          { data: "resourceLim" },
+          { data: "start" },
+          { data: "end" },
+          { data: "user" }
+ 
+        ]
     });
-    </script>
-    <script>
-    $(document).ready(function() {
-        $('#dataTables-example2').DataTable({
-            responsive: true
-        });
+    $.fn.dataTable.ext.errMode = 'throw';
     });
     </script>
 </body>
