@@ -63,6 +63,13 @@ public class MainController {
         return "prenotazioniutente";
     }
 	
+	@RequestMapping(value = { "/risorseutente"}, method = RequestMethod.GET)
+    public String risorseutente(Model model) {
+        return "risorseutente";
+    }
+	
+	
+	
 	@RequestMapping(value = { "/", "/newlogin"}, method = RequestMethod.GET)
     public String newlogin(Model model) {
         return "newlogin";
