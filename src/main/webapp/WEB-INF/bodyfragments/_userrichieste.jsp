@@ -188,14 +188,16 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form">
+                                    <form role="form" method = "POST" action=user/book>
+                                    <font color="red"><b>${errorbook}</b></font>
+                        			<font color="green"><b>${messbook}</b></font>
                                     <div class="form-group">
                                         	<label>ID</label>
 		                                    <input name="id" type="number" min = "0" required/>
 	                                    </div>
                                         <div class="form-group">
                                             <label>Tipo Risorsa</label>
-                                            <select class="form-control" required>
+                                            <select class="form-control" name = "type" required>
                                                 <option>Proiettore</option>
                                                 <option>Macchina</option>
                                                 <option>Laptop</option>
@@ -206,29 +208,29 @@
                                         <div class="form-group">                                            
                                             <label>Nome prenotazione</label>
                                             <div class='input-group' id='book'>
-                                                <input type='text' class="form-control" required />
+                                                <input type='text' class="form-control" name = "bookName" required />
                                             </div>
                                         </div>
                                         <div class="form-group">                                            
                                             <label>Data Inizio</label>
                                             <div class='input-group' id='time0'>
-                                                <input type='date' class="form-control" required />
+                                                <input type='date' class="form-control" name = "startDate" required />
                                             </div>
                                         </div>
                                         <label>Ora Inizio</label>
                                         <div class='input-group' id='time1'>
-                                            <input type='time' class="form-control" required />
+                                            <input type='time' class="form-control" name = "startHour" required />
                                         </div> 
                                         <div class="form-group">                                            
                                             <label>Data Fine</label>
                                             <div class='input-group' id='time0'>
-                                                <input type='date' class="form-control" required />
+                                                <input type='date' class="form-control" name = "endDate" required />
                                             </div>
                                         </div>                                  
                                         
                                         <label>Ora Fine</label>
                                         <div class='input-group' id='time1'>
-                                            <input type='time' class="form-control" required />
+                                            <input type='time' class="form-control" name = "endHour" required />
                                         </div>
                                         <button type="submit" class="btn btn-default">Prenota</button>
                                         <button type="reset" class="btn btn-default">Reset</button>
