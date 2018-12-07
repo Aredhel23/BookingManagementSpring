@@ -54,16 +54,16 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="user"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="/user"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="prenotazioniutente"><i class="fa fa-table fa-fw"></i> Le Mie Prenotazioni</a>
+                            <a href="/prenotazioniutente"><i class="fa fa-table fa-fw"></i> Le Mie Prenotazioni</a>
                         </li>
                         <li>
-                            <a href="richiesteutente"><i class="fa fa-edit fa-fw"></i> Richieste</a>
+                            <a href="/richiesteutente"><i class="fa fa-edit fa-fw"></i> Richieste</a>
                         </li>
                         <li>
-                            <a href="risorseutente"><i class="fa fa-table fa-fw"></i> Risorse</a>
+                            <a href="user/risorseutente"><i class="fa fa-table fa-fw"></i> Risorse</a>
                         </li>
                     </ul>
                 </div>
