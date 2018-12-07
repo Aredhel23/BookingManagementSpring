@@ -62,6 +62,9 @@
                         <li>
                             <a href="richiesteutente"><i class="fa fa-edit fa-fw"></i> Richieste</a>
                         </li>
+                        <li>
+                            <a href="risorseutente"><i class="fa fa-table fa-fw"></i> Risorse</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
