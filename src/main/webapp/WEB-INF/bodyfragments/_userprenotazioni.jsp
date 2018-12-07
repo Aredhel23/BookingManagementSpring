@@ -43,6 +43,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Prenotazioni esistenti</h1>
+                    <font color="red"><b>${errorDeleted}</b></font>
+                    <font color="green"><b>${messDeleted}</b></font>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -58,6 +60,7 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
+                                    	<th>Id Prenotazione</th>
                                         <th>Nome Prenotazione</th>
                                         <th>Id Risorsa</th>
                                         <th>Nome Risorsa</th>
@@ -85,6 +88,7 @@
                             <table width="90%" class="table table-striped table-bordered table-hover" id="dataTables-example1">
                                 <thead>
                                     <tr>
+                                    	<th>Id Prenotazione</th>
                                         <th>Nome Prenotazione</th>
                                         <th>Id Risorsa</th>
                                         <th>Nome Risorsa</th>
@@ -114,6 +118,7 @@
                             <table width="90%" class="table table-striped table-bordered table-hover" id="dataTables-example2">
                                 <thead>
                                     <tr>
+                                    	<th>Id Prenotazione</th>
                                         <th>Nome Prenotazione</th>
                                         <th>Id Risorsa</th>
                                         <th>Nome Risorsa</th>
@@ -158,6 +163,7 @@
             
         },
         columns: [
+          { data: "id" },
           { data: "name" }, 
           { data: "resourceId" }, 
           { data: "resourceName" },
@@ -179,6 +185,7 @@
             
         },
         columns: [
+          { data: "id" },
           { data: "name" }, 
           { data: "resourceId" }, 
           { data: "resourceName" },
@@ -200,6 +207,7 @@
             
         },
         columns: [
+          { data: "id" },	
           { data: "name" }, 
           { data: "resourceId" }, 
           { data: "resourceName" },
