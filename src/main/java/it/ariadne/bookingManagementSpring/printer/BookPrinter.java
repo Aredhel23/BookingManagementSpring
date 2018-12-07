@@ -10,6 +10,13 @@ import it.ariadne.bookingManagementSpring.dao.BookingsDAO;
 public class BookPrinter {
 	private String name;	
 	private long resourceId;
+	private long id;
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	private String resourceName;
 	private int resourceLim;
 	private Date start;
