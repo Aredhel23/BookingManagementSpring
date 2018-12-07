@@ -43,6 +43,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Prenotazioni esistenti</h1>
+                    <font color="red"><b>${errorbook}</b></font>
+                    <font color="green"><b>${messbook}</b></font>
                     <font color="red"><b>${errorDeleted}</b></font>
                     <font color="green"><b>${messDeleted}</b></font>
                 </div>
