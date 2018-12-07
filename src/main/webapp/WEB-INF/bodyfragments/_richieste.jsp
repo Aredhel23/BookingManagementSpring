@@ -54,7 +54,7 @@
 		                            <div class="row">
 		                                <div class="col-lg-6">
 		                       
-		                                    <form role="form" method = "POST" action="/addResource">
+		                                    <form role="form" method = "POST" action="/admin/addResource">
 		                                        <div class="form-group">
 		                                            <label>Seleziona Risorsa</label>
 		                                            <select name="type" class="form-control">
@@ -93,7 +93,7 @@
 		                            
 		                            <div class="row">
 		                                <div class="col-lg-6">
-		                                    <form role="form" method = "POST" action=\deleteResource>
+		                                    <form role="form" method = "POST" action=/admin/deleteResource>
 		                                        <div class="form-group">
 		                                        	<font color="red"><b>${error}</b></font>
                         							<font color="green"><b>${mess}</b></font>
@@ -137,7 +137,7 @@
 		                            <div class="row">
 		                                <div class="col-lg-6">
 		                       
-		                                    <form role="form" method = "POST" action="/editResource">
+		                                    <form role="form" method = "POST" action="/admin/editResource">
 		                                        <div class="form-group">
 		                                        <font color="red"><b>${errorEdit}</b></font>
                         							<font color="green"><b>${messEdit}</b></font>
