@@ -264,10 +264,16 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form">
+                                    <form role="form" method = "POST" action=/deletebookings>
+                                    <font color="red"><b>${errorDeleted}</b></font>
+                        			<font color="green"><b>${messDeleted}</b></font>
                                         <div class="form-group">
+                                        	<label>ID</label>
+		                                    <input name="id" type="number" min = "0" />
+	                                    </div>
+	                                    <div class="form-group">
                                             <label>Tipo Risorsa</label>
-                                            <select class="form-control" required>
+                                            <select class="form-control" name="type" required>
                                                 <option>Proiettore</option>
                                                 <option>Macchina</option>
                                                 <option>Laptop</option>
@@ -276,42 +282,16 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Risorsa particolare</label>
-                                            <select multiple class="form-control" required>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
+                                            <label>Nome Risorsa</label>
+                                            <input type="text" name ="nameRes" />
                                         </div>
                                         <div class="form-group">                                            
-                                            <label>Nome prenotazione</label>
-                                            <div class='input-group' id='book'>
-                                                <input type='text' class="form-control" required />
+                                            <label>Nome Prenotazione</label>
+                                            <div class='input-group' >
+                                                <input type='text' name ="nameBook" class="form-control" required />
                                             </div>
-                                        </div>
-                                        <div class="form-group">                                            
-                                            <label>Data Inizio</label>
-                                            <div class='input-group' id='time0'>
-                                                <input type='date' class="form-control" required />
-                                            </div>
-                                        </div>
-                                        <label>Ora Inizio</label>
-                                        <div class='input-group' id='time1'>
-                                            <input type='time' class="form-control" required />
-                                        </div> 
-                                        <div class="form-group">                                            
-                                            <label>Data Fine</label>
-                                            <div class='input-group' id='time0'>
-                                                <input type='date' class="form-control" required />
-                                            </div>
-                                        </div>                                  
-                                        
-                                        <label>Ora Fine</label>
-                                        <div class='input-group' id='time1'>
-                                            <input type='time' class="form-control" required />
-                                        </div>
+                                        </div>                                                                                                  
+                                          
                                         <button type="submit" class="btn btn-default">Elimina</button>
                                         <button type="reset" class="btn btn-default">Reset</button>
                                     </form>
