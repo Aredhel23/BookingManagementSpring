@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -133,6 +134,56 @@ public class MainController {
 		}
 		book.setData(prin);
 		return book;
+	}
+	@ResponseBody
+	@RequestMapping("/getfutureuserbookings")	
+	public TableResponse<BookPrinter> indexFutureUserbook(Model model, Principal principal) {
+		Iterable<Bookings> all = bookingsDAO.findAll();
+		List<BookPrinter> prin = new ArrayList<>();		
+		for(Bookings b : all) {
+			if(b.getAppUser().getUserName().equals(principal.getName())) {
+				DateTime d = new DateTime(b.getStartDate()); 
+				if(d.isAfterNow()) {
+					BookPrinter bPrin = new BookPrinter();
+					 Resource r = b.getResource();
+					 bPrin.setName(b.getName());
+					 bPrin.setResourceId(r.getId());
+					 bPrin.setResourceLim(r.getLim());
+					 bPrin.setResourceName(r.getName());
+					 bPrin.setStart(b.getStartDate());
+					 bPrin.setEnd(b.getEndDate());
+					 bPrin.setUser(b.getAppUser().getUserName());
+					 prin.add(bPrin);
+				}
+			}
+		}
+		futurebook.setData(prin);
+		return futurebook;
+	}
+	@ResponseBody
+	@RequestMapping("/getpastuserbookings")	
+	public TableResponse<BookPrinter> indexPastUserbook(Model model, Principal principal) {
+		Iterable<Bookings> all = bookingsDAO.findAll();
+		List<BookPrinter> prin = new ArrayList<>();		
+		for(Bookings b : all) {
+			if(b.getAppUser().getUserName().equals(principal.getName())) {
+				DateTime d = new DateTime(b.getStartDate());
+				if (d.isBeforeNow()) {
+					 Resource r = b.getResource();					
+					 BookPrinter bPrin = new BookPrinter();					 
+					 bPrin.setName(b.getName());
+					 bPrin.setResourceId(r.getId());
+					 bPrin.setResourceLim(r.getLim());
+					 bPrin.setResourceName(r.getName());
+					 bPrin.setStart(b.getStartDate());
+					 bPrin.setEnd(b.getEndDate());
+					 bPrin.setUser(b.getAppUser().getUserName());
+					 prin.add(bPrin);	
+				}
+			}
+		}
+		pastbook.setData(prin);
+		return pastbook;
 	}
 		 
 	 @RequestMapping(value = "/403Page", method = RequestMethod.GET)
