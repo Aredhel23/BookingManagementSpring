@@ -77,6 +77,12 @@ public class MainController {
 	@Autowired
 	TableResponse<BookPrinter> book;
 	
+	@Autowired
+	TableResponse<BookPrinter> pastbook;
+	
+	@Autowired
+	TableResponse<BookPrinter> futurebook;
+	
 	@ResponseBody
 	@RequestMapping("/getresources")
 	public TableResponse<Resource> index() {
