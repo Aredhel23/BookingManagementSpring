@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import it.ariadne.bookingManagementSpring.dao.AppUserDAO;
 import it.ariadne.bookingManagementSpring.dao.BookingsDAO;
 import it.ariadne.bookingManagementSpring.dao.ResourceDAO;
+import it.ariadne.bookingManagementSpring.entity.AppUser;
 import it.ariadne.bookingManagementSpring.entity.Bookings;
 import it.ariadne.bookingManagementSpring.entity.Resource;
 import it.ariadne.bookingManagementSpring.entity.impl.Car;
@@ -71,6 +73,9 @@ public class MainController {
 	ResourceDAO resourceDAO;
 	@Autowired
 	BookingsDAO bookingsDAO;
+	
+	@Autowired
+	AppUserDAO app;
 	
 	@Autowired
 	TableResponse<Resource> proj;
@@ -212,7 +217,47 @@ public class MainController {
 	        return "403Page";
 	    }
 	 
-	 @RequestMapping(value = "/addResource", method = RequestMethod.POST)
+	 @RequestMapping(value = "/deletebookings", method = RequestMethod.POST)
+	 public String deleteBooking(HttpServletRequest request, Model model, Principal principal ) {
+		 int id = Integer.parseInt(request.getParameter("id"));
+		 Optional<Bookings> book =bookingsDAO.findById((long) id);
+		 if(book.isPresent()) {
+			 if(book.get().getAppUser().getUserName().equals(principal.getName())) {
+				 if(book.get().getName().equals(request.getParameter("nameBook")) && 
+						 book.get().getResource().getType().equals(request.getParameter("type")) && 
+						 book.get().getResource().getName().equals(request.getParameter("nameRes"))) {
+					 bookingsDAO.delete(book.get());
+					 String mess = "Prenotazione Eliminata con Successo";
+					 	model.addAttribute("messDeleted", mess);
+					 return "prenotazioniutente";
+				 }
+				 
+				 else {
+					 String error = "Prenotazione non eliminata, uno o più campi "
+					 		+ "non corrispondenti all'id della prenotazione selezionata";		 		
+				 	 model.addAttribute("errorDeleted", error);
+					 return "richiesteutente";
+				 }
+			 }
+			 else {
+				 String error = "Non hai una prenotazione con questo id";		 		
+				 	 model.addAttribute("errorDeleted", error);
+					 return "prenotazioniutente";
+					 
+				 }
+		 }
+		 else {
+			 String error = "Non hai una prenotazione con questo id";		 		
+		 	 model.addAttribute("errorDeleted", error);		 		
+		 	 return "prenotazioniutente";			 
+			 }
+		 
+	 }	 
+	 
+	 
+	 //---------------Resource Management----------------------------------------------
+	 
+	 @RequestMapping(value = "/admin/addResource", method = RequestMethod.POST)
 	 public String addResource(HttpServletRequest request, Model model ) {
 		 String type = request.getParameter("type");
 		 String name = request.getParameter("name");
@@ -238,7 +283,7 @@ public class MainController {
 		 	
 		}
 	 
-	 @RequestMapping(value = "/deleteResource", method = RequestMethod.POST)
+	 @RequestMapping(value = "/admin/deleteResource", method = RequestMethod.POST)
 	 public String deleteResource(HttpServletRequest request, Model model ) {
 		 int id = Integer.parseInt(request.getParameter("id"));
 		 Optional<Resource> r = resourceDAO.findById((long) id);
@@ -263,7 +308,7 @@ public class MainController {
 		 
 	 }
 	 
-	 @RequestMapping(value = "/editResource", method = RequestMethod.POST)
+	 @RequestMapping(value = "/admin/editResource", method = RequestMethod.POST)
 	 public String editResource(HttpServletRequest request, Model model ) {
 		 int id = Integer.parseInt(request.getParameter("id"));
 		 int oldLim = Integer.parseInt(request.getParameter("oldLimes"));
@@ -290,5 +335,7 @@ public class MainController {
 		 }
 		 
 	 }
-
+	 //---------------------------Resource Management End--------------------------------------------------------
+	 
+	 
 }
