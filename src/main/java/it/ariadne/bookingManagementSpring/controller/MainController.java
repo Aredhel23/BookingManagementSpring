@@ -238,34 +238,29 @@ public class MainController {
 		long idResource = (long) Integer.parseInt(request.getParameter("id"));
 		Optional<Resource> r = resourceDAO.findById(idResource);
 		if (r.isPresent()) {
-			AvailabilityUtils avut = new AvailabilityUtils();
-			Iterable<Bookings> book = bookingsDAO.findByResource(r.get());
-			DateTimeFormatter df = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");
-			String start = request.getParameter("startDate") + " " + request.getParameter("startHour");
-			DateTime dStart = df.parseDateTime(start);
-			String end = request.getParameter("endDate") + " " + request.getParameter("endHour");
-			DateTime dEnd = df.parseDateTime(end);
-			int duration = Integer.parseInt(request.getParameter("period"));
-			Period p = new Period(duration, 0, 0, 0);
-			boolean ret = true;
-			Period defPeriod = new Period().withHours(1);
-			DateTime start1 = dStart;
-			while (ret) {
-				DateTime end1 = start1.plus(p);
-				if (end1.isBefore(dEnd)) {
-					if (avut.bookingRequest(book, start1, end1)) {
-						DateTimeFormatter df1 = DateTimeFormat.forPattern("dd-MM-yyyy HH:mm");
-						String mess = "Risorsa Disponibile dal " + start1.toString(df1);
-						model.addAttribute("messav", mess);
-						return "richiesteutente";
-					}
-					ret = !avut.bookingRequest(book, start1, end1);
-					start1 = start1.plus(defPeriod);
-				} else {
-					String error = "Nessuna disponibilità trovata";
+			if (r.get().getType().equals(request.getParameter("type"))) {
+
+				AvailabilityUtils avut = new AvailabilityUtils();
+				Iterable<Bookings> book = bookingsDAO.findByResource(r.get());
+				DateTimeFormatter df = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");
+				String start = request.getParameter("startDate") + " " + request.getParameter("startHour");
+				DateTime dStart = df.parseDateTime(start);
+				String end = request.getParameter("endDate") + " " + request.getParameter("endHour");
+				DateTime dEnd = df.parseDateTime(end);
+				if(dStart.isAfter(dEnd)) {
+					String error = "Errore: Inizio dopo la Fine!";
 					model.addAttribute("errorav", error);
 					return "richiesteutente";
 				}
+				int duration = Integer.parseInt(request.getParameter("period"));
+				Period p = new Period(duration, 0, 0, 0);
+				return avut.firstAvailability(model, book, dStart, dEnd, p);
+			}
+			else {
+				String error = "Id non corrispondente al tipo di Risorsa";
+				model.addAttribute("errorav", error);
+				return "richiesteutente";
+				
 			}
 		} else {
 			String error = "Risorsa non presente nel database";
