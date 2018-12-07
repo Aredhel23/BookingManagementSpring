@@ -126,14 +126,16 @@
                             
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    <form role="form" method = "POST" action=/user/firstavailabilitybookings>
+                                    <font color="red"><b>${errorav}</b></font>
+                        			<font color="green"><b>${messav}</b></font>
                                        <div class="form-group">
-                                        	<label>ID</label>
+                                        	<label>ID Risorsa</label>
 		                                    <input name="id" type="number" min = "0" required/>
 	                                    </div>
                                         <div class="form-group">
                                             <label>Tipo Risorsa</label>
-                                            <select class="form-control" required>
+                                            <select class="form-control" name ="type" required>
                                                 <option>Proiettore</option>
                                                 <option>Macchina</option>
                                                 <option>Laptop</option>
@@ -144,30 +146,30 @@
                                         <div class="form-group">                                            
                                             <label>Durata in ore</label>
                                             <div class='input-group' id='period'>
-                                                <input type='number' class="form-control" min="0" step="0.5" required />
+                                                <input type='number'name = "period" class="form-control" min="0" step="1" required />
                                             </div>
                                         </div> 
                                         
                                         <div class="form-group">                                            
                                             <label>Data Inizio</label>
-                                            <div class='input-group' id='time0'>
-                                                <input type='date' class="form-control"/>
+                                            <div class='input-group' id='time0' >
+                                                <input type='date' class="form-control" name = "startDate"/>
                                             </div>
                                         </div>
                                         <label>Ora Inizio</label>
-                                        <div class='input-group' id='time1'>
-                                            <input type='time' class="form-control" />
+                                        <div class='input-group' >
+                                            <input type='time' class="form-control" name = "startHour" />
                                         </div> 
                                         <div class="form-group">                                            
                                             <label>Data Fine</label>
                                             <div class='input-group' id='time0'>
-                                                <input type='date' class="form-control" />
+                                                <input type='date' class="form-control" name = "endDate"/>
                                             </div>
                                         </div>                                  
                                         
                                         <label>Ora Fine</label>
                                         <div class='input-group' id='time1'>
-                                            <input type='time' class="form-control" />
+                                            <input type='time' class="form-control" name = "endHour"/>
                                         </div>                                   
                                         
                                         <button type="submit" class="btn btn-default">Verifica</button>
