@@ -278,6 +278,58 @@ public class MainController {
 		}
 	}
 	
+	@RequestMapping(value = "/user/book", method = RequestMethod.POST)
+	public String book(HttpServletRequest request, Model model, Principal principal) {
+		long idResource = (long) Integer.parseInt(request.getParameter("id"));
+		Optional<Resource> r = resourceDAO.findById(idResource);
+		if (r.isPresent()) {
+			if (r.get().getType().equals(request.getParameter("type"))) {
+				AvailabilityUtils avut = new AvailabilityUtils();
+				Iterable<Bookings> book = bookingsDAO.findByResource(r.get());
+				DateTimeFormatter df = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");
+				String start = request.getParameter("startDate") + " " + request.getParameter("startHour");
+				DateTime dStart = df.parseDateTime(start);
+				String end = request.getParameter("endDate") + " " + request.getParameter("endHour");
+				DateTime dEnd = df.parseDateTime(end);
+				if(dStart.isAfter(dEnd)) {
+					String error = "Errore: Inizio dopo la Fine!";
+					model.addAttribute("errorbook", error);
+					return "richiesteutente";
+				}
+				if(avut.bookingRequest(book, dStart, dEnd)) {
+					Bookings b = new Bookings();
+					b.setAppUser(app.findUserAccount(principal.getName()));
+					b.setName(request.getParameter("bookName"));
+					b.setResource(r.get());
+					b.setStartDate(dStart.toDate());
+					b.setEndDate(dEnd.toDate());
+					bookingsDAO.save(b);
+					String mess = "Prenotazione aggiunta!";
+					model.addAttribute("messbook", mess);
+					return "prenotazioniutente";
+				}
+				else {
+					String error = "Risorsa non Disponibile!";
+					model.addAttribute("errorbook", error);
+					return "richiesteutente";
+					
+				}
+			}
+			else {
+				String error = "Id non corrispondente al tipo di Risorsa";
+				model.addAttribute("errorbook", error);
+				return "richiesteutente";
+				
+			}
+			
+		}
+		else {
+			String error = "Risorsa non presente nel database";
+			model.addAttribute("errorav1", error);
+			return "richiesteutente";
+		}
+	}
+	
 	
 	@RequestMapping(value = "/user/firstavailabilitybookings", method = RequestMethod.POST)
 	public String firstavailabilityBooking(HttpServletRequest request, Model model, Principal principal) {
