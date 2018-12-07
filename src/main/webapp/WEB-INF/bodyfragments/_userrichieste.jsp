@@ -52,16 +52,16 @@
                             
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
-                                        <div class="form-group">                                            
-                                            <label>Data</label>
-                                            <div class='input-group datetime' id='datetimepicker1'>
-                                                <input type='datetime' class="form-control" />
-                                            </div>                                            
-                                        </div>
+                                    <form role="form" method = "POST" action=/user/availabilitybookings>
+                                    <font color="red"><b>${errorav1}</b></font>
+                        			<font color="green"><b>${messav1}</b></font>
+                                       <div class="form-group">
+                                        	<label>ID Risorsa</label>
+		                                    <input name="id" type="number" min = "0" required/>
+	                                    </div>                             
                                         <div class="form-group">
                                             <label>Tipo Risorsa</label>
-                                            <select class="form-control" required>
+                                            <select class="form-control" name= "type" required>
                                                 <option>Proiettore</option>
                                                 <option>Macchina</option>
                                                 <option>Laptop</option>
@@ -69,36 +69,27 @@
                                                 <option>Ufficio</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Risorsa particolare</label>
-                                            <select multiple class="form-control" required>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
+                                        
                                         <div class="form-group">                                            
                                             <label>Data Inizio</label>
                                             <div class='input-group' id='time0'>
-                                                <input type='date' class="form-control" required />
+                                                <input type='date' class="form-control" name = "startDate"  required />
                                             </div>
                                         </div>
                                         <label>Ora Inizio</label>
                                         <div class='input-group' id='time1'>
-                                            <input type='time' class="form-control" required />
+                                            <input type='time' class="form-control" name = "startHour" required />
                                         </div> 
                                         <div class="form-group">                                            
                                             <label>Data Fine</label>
                                             <div class='input-group' id='time0'>
-                                                <input type='date' class="form-control" required />
+                                                <input type='date' class="form-control" name = "endDate" required />
                                             </div>
                                         </div>                                  
                                         
                                         <label>Ora Fine</label>
                                         <div class='input-group' id='time1'>
-                                            <input type='time' class="form-control" required/>
+                                            <input type='time' class="form-control" name = "endHour" required/>
                                         </div> 
                                                                                     
                                         <div class="form-group">
