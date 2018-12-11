@@ -155,9 +155,6 @@
     <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
-
-    <script type="application/json" src="../vendor/datatables-plugins/it.json"></script>
-    <script type="application/json" src="https://cdn.datatables.net/plug-ins/1.10.19/i18n/Italian.json"></script>
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 
     <script>
