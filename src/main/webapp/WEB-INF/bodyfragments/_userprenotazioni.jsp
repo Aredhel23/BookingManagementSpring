@@ -14,6 +14,8 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="../my.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
@@ -62,11 +64,11 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                    	<th>Id Prenotazione</th>
+                                    	<th class = "left-aligned-cell">Id Prenotazione</th>
                                         <th>Nome Prenotazione</th>
-                                        <th>Id Risorsa</th>
+                                        <th class = "left-aligned-cell">Id Risorsa</th>
                                         <th>Nome Risorsa</th>
-                                        <th>Limite Risorsa</th>
+                                        <th class = "left-aligned-cell">Limite Risorsa</th>
                                         <th>Inizio</th>
                                         <th>Fine</th>
                                         <th>Nome Utente</th>
@@ -90,11 +92,11 @@
                             <table width="90%" class="table table-striped table-bordered table-hover" id="dataTables-example1">
                                 <thead>
                                     <tr>
-                                    	<th>Id Prenotazione</th>
+                                    	<th class = "left-aligned-cell">Id Prenotazione</th>
                                         <th>Nome Prenotazione</th>
-                                        <th>Id Risorsa</th>
+                                        <th class = "left-aligned-cell">Id Risorsa</th>
                                         <th>Nome Risorsa</th>
-                                        <th>Limite Risorsa</th>
+                                        <th class = "left-aligned-cell">Limite Risorsa</th>
                                         <th>Inizio</th>
                                         <th>Fine</th>
                                         <th>Nome Utente</th>
@@ -120,11 +122,11 @@
                             <table width="90%" class="table table-striped table-bordered table-hover" id="dataTables-example2">
                                 <thead>
                                     <tr>
-                                    	<th>Id Prenotazione</th>
+                                    	<th class = "left-aligned-cell">Id Prenotazione</th>
                                         <th>Nome Prenotazione</th>
-                                        <th>Id Risorsa</th>
+                                        <th class = "left-aligned-cell">Id Risorsa</th>
                                         <th>Nome Risorsa</th>
-                                        <th>Limite Risorsa</th>
+                                        <th class = "left-aligned-cell">Limite Risorsa</th>
                                         <th>Inizio</th>
                                         <th>Fine</th>
                                         <th>Nome Utente</th>
