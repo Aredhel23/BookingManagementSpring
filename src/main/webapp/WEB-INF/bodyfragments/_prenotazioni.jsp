@@ -17,7 +17,7 @@
 
     <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
+	<link href="../my.css" rel="stylesheet">
     <!-- DataTables CSS -->
     <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 
@@ -60,9 +60,9 @@
                                 <thead>
                                     <tr>
                                         <th>Nome Prenotazione</th>
-                                        <th>Id Risorsa</th>
+                                        <th class= "left-aligned-cell">Id Risorsa</th>
                                         <th>Nome Risorsa</th>
-                                        <th>Limite Risorsa</th>
+                                        <th class= "left-aligned-cell">Limite Risorsa</th>
                                         <th>Inizio</th>
                                         <th>Fine</th>
                                         <th>Nome Utente</th>
@@ -102,13 +102,108 @@
             dataSrc: 'data'
             
         },
+        "language": {
+            "url":" //cdn.datatables.net/plug-ins/1.10.19/i18n/Italian.json",
+        },
         columns: [
           { data: "name" }, 
-          { data: "resourceId" }, 
+          { data: "resourceId" , className: "right-aligned-cell" }, 
           { data: "resourceName" },
-          { data: "resourceLim" },
-          { data: "start" },
-          { data: "end" },
+          { data: "resourceLim" , className: "right-aligned-cell"},
+          { data: "start", 
+        	  "render" : function(
+						data, type,
+						row) {
+					var x = new Date(
+							data);
+					var monthNames = [
+							"Gennaio",
+							"Febbraio",
+							"Marzo",
+							"Aprile",
+							"Maggio",
+							"Giugno",
+							"Luglio",
+							"Agosto",
+							"Settembre",
+							"Ottobre",
+							"Novembre",
+							"Dicembre" ];
+					var day = x
+							.getDate();
+					var monthIndex = x
+							.getMonth();
+					var year = x
+							.getFullYear();
+					var ore = x
+							.getHours();
+					var minuti = x
+							.getMinutes();
+					if (ore < 10) {
+						ore = '0'
+								+ ore;
+					}
+					if (minuti < 10) {
+						minuti = '0'
+								+ minuti;
+					}
+					return day
+							+ ' '
+							+ monthNames[monthIndex]
+							+ ' '
+							+ year
+							+ ' '
+							+ ore
+							+ ':'
+							+ minuti;
+				}},
+          { data: "end",
+        	  "render" : function(
+						data, type,
+						row) {
+					var x = new Date(
+							data);
+					var monthNames = [
+							"Gennaio",
+							"Febbraio",
+							"Marzo",
+							"Aprile",
+							"Maggio",
+							"Giugno",
+							"Luglio",
+							"Agosto",
+							"Settembre",
+							"Ottobre",
+							"Novembre",
+							"Dicembre" ];
+					var day = x
+							.getDate();
+					var monthIndex = x
+							.getMonth();
+					var year = x
+							.getFullYear();
+					var ore = x
+							.getHours();
+					var minuti = x
+							.getMinutes();
+					if (ore < 10) {
+						ore = '0'
+								+ ore;
+					}
+					if (minuti < 10) {
+						minuti = '0'
+								+ minuti;
+					}
+					return day
+							+ ' '
+							+ monthNames[monthIndex]
+							+ ' '
+							+ year
+							+ ' '
+							+ ore
+							+ ':'
+							+ minuti;
+				}},
           { data: "user" }
  
         ]

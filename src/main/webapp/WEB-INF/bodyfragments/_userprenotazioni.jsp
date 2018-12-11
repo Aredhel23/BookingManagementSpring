@@ -151,29 +151,130 @@
     <!-- /#wrapper -->
     
     <!-- DataTables JavaScript -->
+    <script src="../vendor/datatables/js/jquery.dataTables.js"></script>
     <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
 
-    
+    <script type="application/json" src="../vendor/datatables-plugins/it.json"></script>
+    <script type="application/json" src="https://cdn.datatables.net/plug-ins/1.10.19/i18n/Italian.json"></script>
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    
+
     <script>
+    
+
     $(document).ready(function() {
     $('#dataTables-example1').DataTable({
         ajax: {
             url: "/getpastuserbookings",
-            dataSrc: 'data'
+            dataSrc: 'data'            
             
         },
+        "language": {
+            "url":" //cdn.datatables.net/plug-ins/1.10.19/i18n/Italian.json",
+        },
         columns: [
-          { data: "id" },
+          { data: "id", className: "right-aligned-cell"},
           { data: "name" }, 
-          { data: "resourceId" }, 
+          { data: "resourceId", className: "right-aligned-cell"}, 
           { data: "resourceName" },
-          { data: "resourceLim" },
-          { data: "start" },
-          { data: "end" },
+          { data: "resourceLim", className: "right-aligned-cell"},
+          { data: "start",
+        	  "render" : function(
+						data, type,
+						row) {
+					var x = new Date(
+							data);
+					var monthNames = [
+							"Gennaio",
+							"Febbraio",
+							"Marzo",
+							"Aprile",
+							"Maggio",
+							"Giugno",
+							"Luglio",
+							"Agosto",
+							"Settembre",
+							"Ottobre",
+							"Novembre",
+							"Dicembre" ];
+					var day = x
+							.getDate();
+					var monthIndex = x
+							.getMonth();
+					var year = x
+							.getFullYear();
+					var ore = x
+							.getHours();
+					var minuti = x
+							.getMinutes();
+					if (ore < 10) {
+						ore = '0'
+								+ ore;
+					}
+					if (minuti < 10) {
+						minuti = '0'
+								+ minuti;
+					}
+					return day
+							+ ' '
+							+ monthNames[monthIndex]
+							+ ' '
+							+ year
+							+ ' '
+							+ ore
+							+ ':'
+							+ minuti;
+				}
+          
+		   },
+          { data: "end",
+			   "render" : function(
+						data, type,
+						row) {
+					var x = new Date(
+							data);
+					var monthNames = [
+							"Gennaio",
+							"Febbraio",
+							"Marzo",
+							"Aprile",
+							"Maggio",
+							"Giugno",
+							"Luglio",
+							"Agosto",
+							"Settembre",
+							"Ottobre",
+							"Novembre",
+							"Dicembre" ];
+					var day = x
+							.getDate();
+					var monthIndex = x
+							.getMonth();
+					var year = x
+							.getFullYear();
+					var ore = x
+							.getHours();
+					var minuti = x
+							.getMinutes();
+					if (ore < 10) {
+						ore = '0'
+								+ ore;
+					}
+					if (minuti < 10) {
+						minuti = '0'
+								+ minuti;
+					}
+					return day
+							+ ' '
+							+ monthNames[monthIndex]
+							+ ' '
+							+ year
+							+ ' '
+							+ ore
+							+ ':'
+							+ minuti;
+				} },
           { data: "user" }
  
         ]
@@ -188,14 +289,111 @@
             dataSrc: 'data'
             
         },
+        "language": {
+            "url":" //cdn.datatables.net/plug-ins/1.10.19/i18n/Italian.json",
+        },
         columns: [
-          { data: "id" },
+          { data: "id", className: "right-aligned-cell" },
           { data: "name" }, 
-          { data: "resourceId" }, 
+          { data: "resourceId", className: "right-aligned-cell"}, 
           { data: "resourceName" },
-          { data: "resourceLim" },
-          { data: "start" },
-          { data: "end" },
+          { data: "resourceLim", className: "right-aligned-cell"},
+          { data: "start",
+        	  "render" : function(
+						data, type,
+						row) {
+					var x = new Date(
+							data);
+					var monthNames = [
+							"Gennaio",
+							"Febbraio",
+							"Marzo",
+							"Aprile",
+							"Maggio",
+							"Giugno",
+							"Luglio",
+							"Agosto",
+							"Settembre",
+							"Ottobre",
+							"Novembre",
+							"Dicembre" ];
+					var day = x
+							.getDate();
+					var monthIndex = x
+							.getMonth();
+					var year = x
+							.getFullYear();
+					var ore = x
+							.getHours();
+					var minuti = x
+							.getMinutes();
+					if (ore < 10) {
+						ore = '0'
+								+ ore;
+					}
+					if (minuti < 10) {
+						minuti = '0'
+								+ minuti;
+					}
+					return day
+							+ ' '
+							+ monthNames[monthIndex]
+							+ ' '
+							+ year
+							+ ' '
+							+ ore
+							+ ':'
+							+ minuti;
+				}
+			},
+          { data: "end",
+				"render" : function(
+						data, type,
+						row) {
+					var x = new Date(
+							data);
+					var monthNames = [
+							"Gennaio",
+							"Febbraio",
+							"Marzo",
+							"Aprile",
+							"Maggio",
+							"Giugno",
+							"Luglio",
+							"Agosto",
+							"Settembre",
+							"Ottobre",
+							"Novembre",
+							"Dicembre" ];
+					var day = x
+							.getDate();
+					var monthIndex = x
+							.getMonth();
+					var year = x
+							.getFullYear();
+					var ore = x
+							.getHours();
+					var minuti = x
+							.getMinutes();
+					if (ore < 10) {
+						ore = '0'
+								+ ore;
+					}
+					if (minuti < 10) {
+						minuti = '0'
+								+ minuti;
+					}
+					return day
+							+ ' '
+							+ monthNames[monthIndex]
+							+ ' '
+							+ year
+							+ ' '
+							+ ore
+							+ ':'
+							+ minuti;
+				}
+          },
           { data: "user" }
  
         ]
@@ -210,19 +408,115 @@
             dataSrc: 'data'
             
         },
+        "language": {
+            "url":" //cdn.datatables.net/plug-ins/1.10.19/i18n/Italian.json",
+        },
         columns: [
-          { data: "id" },	
+          { data: "id", className: "right-aligned-cell"},	
           { data: "name" }, 
-          { data: "resourceId" }, 
+          { data: "resourceId", className: "right-aligned-cell"}, 
           { data: "resourceName" },
-          { data: "resourceLim" },
-          { data: "start" },
-          { data: "end" },
+          { data: "resourceLim", className: "right-aligned-cell"},
+          { data: "start",
+        	  "render" : function(
+						data, type,
+						row) {
+					var x = new Date(
+							data);
+					var monthNames = [
+							"Gennaio",
+							"Febbraio",
+							"Marzo",
+							"Aprile",
+							"Maggio",
+							"Giugno",
+							"Luglio",
+							"Agosto",
+							"Settembre",
+							"Ottobre",
+							"Novembre",
+							"Dicembre" ];
+					var day = x
+							.getDate();
+					var monthIndex = x
+							.getMonth();
+					var year = x
+							.getFullYear();
+					var ore = x
+							.getHours();
+					var minuti = x
+							.getMinutes();
+					if (ore < 10) {
+						ore = '0'
+								+ ore;
+					}
+					if (minuti < 10) {
+						minuti = '0'
+								+ minuti;
+					}
+					return day
+							+ ' '
+							+ monthNames[monthIndex]
+							+ ' '
+							+ year
+							+ ' '
+							+ ore
+							+ ':'
+							+ minuti;
+				}
+		  },
+          { data: "end",
+			  "render" : function(
+						data, type,
+						row) {
+					var x = new Date(
+							data);
+					var monthNames = [
+							"Gennaio",
+							"Febbraio",
+							"Marzo",
+							"Aprile",
+							"Maggio",
+							"Giugno",
+							"Luglio",
+							"Agosto",
+							"Settembre",
+							"Ottobre",
+							"Novembre",
+							"Dicembre" ];
+					var day = x
+							.getDate();
+					var monthIndex = x
+							.getMonth();
+					var year = x
+							.getFullYear();
+					var ore = x
+							.getHours();
+					var minuti = x
+							.getMinutes();
+					if (ore < 10) {
+						ore = '0'
+								+ ore;
+					}
+					if (minuti < 10) {
+						minuti = '0'
+								+ minuti;
+					}
+					return day
+							+ ' '
+							+ monthNames[monthIndex]
+							+ ' '
+							+ year
+							+ ' '
+							+ ore
+							+ ':'
+							+ minuti;
+				}  },
           { data: "user" }
  
         ]
     });
-    $.fn.dataTable.ext.errMode = 'throw';
+    
     });
     </script>
 </body>
