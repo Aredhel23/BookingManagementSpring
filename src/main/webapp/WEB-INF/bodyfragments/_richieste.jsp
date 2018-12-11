@@ -108,7 +108,7 @@
 		                                        </div>
 		                                        <div class="form-group">
 		                                            <label>ID</label>
-		                                            <input name="id" type="number" min = "0" />
+		                                            <input name="id" type="number" min = "0" style="text-align: right;"/>
 		                                        </div>
 		                                        <button type="submit" class="btn btn-default">Elimina</button>
 		                                        <button type="reset" class="btn btn-default">Reset</button>
@@ -143,7 +143,7 @@
                         							<font color="green"><b>${messEdit}</b></font>
 		                                        <div class="form-group">
 		                                            <label>ID</label>
-		                                            <input name="id" type="number" min = "0" />
+		                                            <input name="id" type="number" min = "0" style="text-align: right;" />
 		                                        </div>
 		                                            <label>Seleziona Risorsa</label>
 		                                            <select name="type" class="form-control">
@@ -154,9 +154,9 @@
 		                                                <option>Ufficio</option>
 		                                            </select>
 		                                            <label>Limite Precedente</label>
-		                                            <input name = "oldLimes" type = "number" min = "0" step="1" />
+		                                            <input name = "oldLimes" type = "number" min = "0" step="1" style="text-align: right;" />
 		                                            <label>Limite Desiderato</label>
-		                                            <input name = "newLimes" type = "number" min = "0" step="1" />		                                            
+		                                            <input name = "newLimes" type = "number" min = "0" step="1" style="text-align: right;"/>		                                            
 		                                        </div>
 		                                        <button type="submit" class="btn btn-default" >Modifica</button>
 		                                        <button type="reset" class="btn btn-default">Reset</button>
