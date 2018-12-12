@@ -17,7 +17,7 @@
 
     <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
+	<link href="../my.css" rel="stylesheet">
     <!-- DataTables CSS -->
     <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 
@@ -59,99 +59,16 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Risorsa</th>
-                                        <th>Data</th>
-                                        <th>Ora</th>
                                         <th>Nome Prenotazione</th>
+                                        <th class= "left-aligned-cell">Id Risorsa</th>
+                                        <th>Nome Risorsa</th>
+                                        <th class= "left-aligned-cell">Limite Risorsa</th>
+                                        <th>Inizio</th>
+                                        <th>Fine</th>
                                         <th>Nome Utente</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                        
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Analisi</td>
-                                        <td>Gianluca Verdi</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>11-13</td>
-                                        <td>lezione Fisica</td>
-                                        <td>Giorgio Giorgi</td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Macchina</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-18</td>
-                                        <td>Milano</td>
-                                        <td>Gaia Mancini</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Macchina</td>
-                                        <td>03/01/2019</td>
-                                        <td>9-22</td>
-                                        <td>Torino</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Laptop</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-13</td>
-                                        <td>Riunione</td>
-                                        <td>Luca Rossi</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Laptop</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Proiettore</td>
-                                        <td>01/01/2019</td>
-                                        <td>9-11</td>
-                                        <td>lezione Robotica</td>
-                                        <td>Mario Rossi</td>
-                                    </tr>
+                                
                             </table>
                             <!-- /.table-responsive -->
                             
@@ -179,9 +96,118 @@
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
+    $('#dataTables-example').DataTable({
+        ajax: {
+            url: "/getbookings",
+            dataSrc: 'data'
+            
+        },
+        "language": {
+            "url":" //cdn.datatables.net/plug-ins/1.10.19/i18n/Italian.json",
+        },
+        columns: [
+          { data: "name" }, 
+          { data: "resourceId" , className: "right-aligned-cell" }, 
+          { data: "resourceName" },
+          { data: "resourceLim" , className: "right-aligned-cell"},
+          { data: "start", 
+        	  "render" : function(
+						data, type,
+						row) {
+					var x = new Date(
+							data);
+					var monthNames = [
+							"Gennaio",
+							"Febbraio",
+							"Marzo",
+							"Aprile",
+							"Maggio",
+							"Giugno",
+							"Luglio",
+							"Agosto",
+							"Settembre",
+							"Ottobre",
+							"Novembre",
+							"Dicembre" ];
+					var day = x
+							.getDate();
+					var monthIndex = x
+							.getMonth();
+					var year = x
+							.getFullYear();
+					var ore = x
+							.getHours();
+					var minuti = x
+							.getMinutes();
+					if (ore < 10) {
+						ore = '0'
+								+ ore;
+					}
+					if (minuti < 10) {
+						minuti = '0'
+								+ minuti;
+					}
+					return day
+							+ ' '
+							+ monthNames[monthIndex]
+							+ ' '
+							+ year
+							+ ' '
+							+ ore
+							+ ':'
+							+ minuti;
+				}},
+          { data: "end",
+        	  "render" : function(
+						data, type,
+						row) {
+					var x = new Date(
+							data);
+					var monthNames = [
+							"Gennaio",
+							"Febbraio",
+							"Marzo",
+							"Aprile",
+							"Maggio",
+							"Giugno",
+							"Luglio",
+							"Agosto",
+							"Settembre",
+							"Ottobre",
+							"Novembre",
+							"Dicembre" ];
+					var day = x
+							.getDate();
+					var monthIndex = x
+							.getMonth();
+					var year = x
+							.getFullYear();
+					var ore = x
+							.getHours();
+					var minuti = x
+							.getMinutes();
+					if (ore < 10) {
+						ore = '0'
+								+ ore;
+					}
+					if (minuti < 10) {
+						minuti = '0'
+								+ minuti;
+					}
+					return day
+							+ ' '
+							+ monthNames[monthIndex]
+							+ ' '
+							+ year
+							+ ' '
+							+ ore
+							+ ':'
+							+ minuti;
+				}},
+          { data: "user" }
+ 
+        ]
+    });
     });
     </script>
 	</body>

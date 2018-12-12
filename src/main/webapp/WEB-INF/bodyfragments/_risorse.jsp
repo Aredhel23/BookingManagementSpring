@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="../my.css" rel="stylesheet">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -21,15 +22,17 @@
                         <div class="panel-heading">
                            Risorse Disponibili
                         </div>
+                         <font color="red"><b>${error}</b></font>
+                        <font color="green"><b>${mess}</b></font>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                             	 <thead>
                                     <tr>
-                                        <th>Id</th>
+                                        <th class= "left-aligned-cell">Id</th>
                                          <th>Tipo</th>
                                         <th>Nome</th>                                       
-                                        <th>Limite</th>
+                                        <th class= "left-aligned-cell">Limite</th>
                                     </tr>
                                 </thead>                                
                             </table>
@@ -79,11 +82,14 @@
             dataSrc: 'data'
             
         },
+        "language": {
+            "url":" //cdn.datatables.net/plug-ins/1.10.19/i18n/Italian.json",
+        },
         columns: [
-          { data: "id" }, 
+          { data: "id" , className: "right-aligned-cell"}, 
           { data: "type" }, 
           { data: "name" },
-          { data: "limit" }
+          { data: "lim" , className: "right-aligned-cell"}
  
         ]
     });

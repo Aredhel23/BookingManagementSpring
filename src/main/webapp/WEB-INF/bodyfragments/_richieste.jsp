@@ -36,12 +36,10 @@
 	<body>
 		<div id="page-wrapper">
 		            <div class="row">
-		                <div class="col-lg-6">
+		                <div class="col-lg-12">
 		                    <h1 class="page-header">Gestione Risorse</h1>
 		                </div>
-		                <div class="col-lg-6">
-		                    <h1 class="page-header">Ricerca Prenotazioni</h1>
-		                </div>
+		                
 		                <!-- /.col-lg-12 -->
 		            </div>
 		            <!-- /.row -->
@@ -55,35 +53,26 @@
 		                            
 		                            <div class="row">
 		                                <div class="col-lg-6">
-		                                <%
-		                                	String name = (String)session.getAttribute("name");
-		                                	String error = (String)session.getAttribute("error");
-		                                	String mess = (String)session.getAttribute("mess");
-		                                %>
-		                                <font color="red"><b><%=error!=null?error:"" %></b></font>
-		                                <font color="green"><b><%=mess!=null?mess:"" %></b></font>
-		                                    <form role="form" method = "POST" action="/gigetto">
+		                       
+		                                    <form role="form" method = "POST" action="/admin/addResource">
 		                                        <div class="form-group">
 		                                            <label>Seleziona Risorsa</label>
-		                                            <select name="name" class="form-control" required value="<%=name!=null?name:"" %>">
+		                                            <select name="type" class="form-control">
 		                                                <option>Proiettore</option>
 		                                                <option>Macchina</option>
 		                                                <option>Laptop</option>
 		                                                <option>Aula</option>
 		                                                <option>Ufficio</option>
 		                                            </select>
+		                                            <label>Nome</label>
+		                                            <input name = "name" type = "text"/>
+		                                            <label>Imposta limite</label>
+		                                            <input name = "limes" type = "number" min = "0" step="1" />		                                            
 		                                        </div>
 		                                        <button type="submit" class="btn btn-default"  >Aggiungi</button>
 		                                        <button type="reset" class="btn btn-default">Reset</button>
 		                                    </form>
-		                                    <form role="form" method = "POST" action="/gigetto">
-		                                        <div class="form-group">
-		                                            <label>Seleziona Risorsa</label>
-		                                            <input name="name" type="text" value="<%=name!=null?name:"" %>" >
-		                                        </div>
-		                                        <button type="submit" class="btn btn-default"  >Aggiungi</button>
-		                                        <button type="reset" class="btn btn-default">Reset</button>
-		                                    </form>
+		                                   
 		                                </div>
 		                                <!-- /.col-lg-6 (nested) -->
 		                                
@@ -104,16 +93,12 @@
 		                            
 		                            <div class="row">
 		                                <div class="col-lg-6">
-		                                    <form role="form">
-		                                        <div class="form-group">                                            
-		                                            <label>Data</label>
-		                                            <div class='input-group date' id='datetimepicker1'>
-		                                                <input type='date' class="form-control" required />
-		                                            </div>                                            
-		                                        </div>
+		                                    <form role="form" method = "POST" action=/admin/deleteResource>
 		                                        <div class="form-group">
+		                                        	<font color="red"><b>${error}</b></font>
+                        							<font color="green"><b>${mess}</b></font>
 		                                            <label>Select Resource</label>
-		                                            <select class="form-control" required>
+		                                            <select name = "type" class="form-control" required>
 		                                                <option>Proiettore</option>
 		                                                <option>Macchina</option>
 		                                                <option>Laptop</option>
@@ -122,14 +107,8 @@
 		                                            </select>
 		                                        </div>
 		                                        <div class="form-group">
-		                                            <label>Multiple Selects</label>
-		                                            <select multiple class="form-control" required>
-		                                                <option>1</option>
-		                                                <option>2</option>
-		                                                <option>3</option>
-		                                                <option>4</option>
-		                                                <option>5</option>
-		                                            </select>
+		                                            <label>ID</label>
+		                                            <input name="id" type="number" min = "0" style="text-align: right;"/>
 		                                        </div>
 		                                        <button type="submit" class="btn btn-default">Elimina</button>
 		                                        <button type="reset" class="btn btn-default">Reset</button>
@@ -144,53 +123,57 @@
 		                        <!-- /.panel-body -->
 		                    </div>
 		                    <!-- /.panel -->
+		                    
 		                </div>
 		                <!-- /.col-lg-6 -->
 		                
 		                <div class="col-lg-6">
 		                    <div class="panel panel-default">
 		                        <div class="panel-heading">
-		                            Stampa Prenotazioni
+		                            Modifica Risorsa
 		                        </div>
 		                        <div class="panel-body">
+		                            
 		                            <div class="row">
-		                                <div class="col-lg-12">
-		                                    <form role="form">                                                 
-		                                        <button type="submit" class="btn btn-default">Stampa per risorsa</button>
-		                                        <button type="submit" class="btn btn-default">Stampa per utente</button>
+		                                <div class="col-lg-6">
+		                       
+		                                    <form role="form" method = "POST" action="/admin/editResource">
+		                                        <div class="form-group">
+		                                        <font color="red"><b>${errorEdit}</b></font>
+                        							<font color="green"><b>${messEdit}</b></font>
+		                                        <div class="form-group">
+		                                            <label>ID</label>
+		                                            <input name="id" type="number" min = "0" style="text-align: right;" />
+		                                        </div>
+		                                            <label>Seleziona Risorsa</label>
+		                                            <select name="type" class="form-control">
+		                                                <option>Proiettore</option>
+		                                                <option>Macchina</option>
+		                                                <option>Laptop</option>
+		                                                <option>Aula</option>
+		                                                <option>Ufficio</option>
+		                                            </select>
+		                                            <label>Limite Precedente</label>
+		                                            <input name = "oldLimes" type = "number" min = "0" step="1" style="text-align: right;" />
+		                                            <label>Limite Desiderato</label>
+		                                            <input name = "newLimes" type = "number" min = "0" step="1" style="text-align: right;"/>		                                            
+		                                        </div>
+		                                        <button type="submit" class="btn btn-default" >Modifica</button>
 		                                        <button type="reset" class="btn btn-default">Reset</button>
 		                                    </form>
+		                                   
 		                                </div>
-		                                <!-- /.col-lg-12 (nested) -->
+		                                <!-- /.col-lg-6 (nested) -->
+		                                
 		                                
 		                            </div>
 		                            <!-- /.row (nested) -->
+		                            
+		                            
 		                        </div>
 		                        <!-- /.panel-body -->
 		                    </div>
 		                    <!-- /.panel -->
-		                    <div class="panel panel-default">
-		                        <div class="panel-heading">
-		                            Stampa Prenotazioni
-		                        </div>
-		                        <div class="panel-body">
-		                            <div class="row">
-		                                <div class="col-lg-12">
-		                                    <div class="form-group" id="PrintArea">
-		                                            <textarea class="form-control" rows="25" readonly="readonly"></textarea>
-		                                    </div>
-		                                </div>
-		                                <!-- /.col-lg-12 (nested) -->
-		                                
-		                            </div>
-		                            <!-- /.row (nested) -->
-		                        </div>
-		                        <!-- /.panel-body -->
-		                    </div>
-		                </div>
-		                <!-- /.col-lg-6 -->                
-		            </div>               
-		            <!-- /.row -->
 		        </div>
 		        <!-- /#page-wrapper -->
 		

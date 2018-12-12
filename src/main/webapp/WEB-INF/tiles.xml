@@ -65,6 +65,12 @@
         <put-attribute name="body" value="/WEB-INF/bodyfragments/_userrichieste.jsp" />  
     </definition>
     
+     <!-- Risorse Utente  -->
+    <definition name="risorseutente" extends="baseuser.definition">  
+        <put-attribute name="title" value="risorseutente" />  
+        <put-attribute name="body" value="/WEB-INF/bodyfragments/_risorse.jsp" />  
+    </definition> 
+    
     <definition name="newlogin" 
         template="/WEB-INF/layouts/classic.jsp">  
         <put-attribute name="title" value="" />  
